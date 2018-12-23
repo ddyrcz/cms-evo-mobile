@@ -14,10 +14,12 @@ namespace cms_evo_mobile
 {
     class CarModel
     {
+        public Guid Id { get; set; }
         public string Make { get; }
 
-        public CarModel(string make)
+        public CarModel(Guid id, string make)
         {
+            Id = id;
             Make = make;
         }
     }

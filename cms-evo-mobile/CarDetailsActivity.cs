@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using cms_evo_mobile.Utils;
 
 namespace cms_evo_mobile
 {
@@ -21,7 +22,11 @@ namespace cms_evo_mobile
 
             SetContentView(Resource.Layout.car_details);
 
-            // Create your application here
+            var car = Intent.GetExtra<CarModel>("selectedCar");
+
+            var makeTextView = FindViewById<TextView>(Resource.Id.details_car_make);
+
+            makeTextView.Text = car.Make;
         }
     }
 }
