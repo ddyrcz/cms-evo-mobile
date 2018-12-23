@@ -10,17 +10,19 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace cms_evo_mobile
+namespace Cms
 {
     class CarModel
     {
-        public Guid Id { get; set; }
-        public string Make { get; }
+        public Guid Id { get; }
+        public string Name { get; }
+        public string RegistrationNumber { get; }
 
-        public CarModel(Guid id, string make)
+        public CarModel(Guid id, string name, string registrationNumber)
         {
             Id = id;
-            Make = make;
+            Name = name;
+            RegistrationNumber = registrationNumber;
         }
     }
 
@@ -51,7 +53,8 @@ namespace cms_evo_mobile
             View view = convertView;
             if (view == null) // no view to re-use, create new
                 view = _context.LayoutInflater.Inflate(Resource.Layout.car_list_item, null);
-            view.FindViewById<TextView>(Resource.Id.list_item_car_make).Text = item.Make;
+            view.FindViewById<TextView>(Resource.Id.list_item_car_name).Text = item.Name;
+            view.FindViewById<TextView>(Resource.Id.list_item_car_registration_number).Text = item.RegistrationNumber;
             return view;
         }
     }

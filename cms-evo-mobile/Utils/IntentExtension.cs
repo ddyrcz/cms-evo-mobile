@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
 
-namespace cms_evo_mobile.Utils
+namespace Cms.Utils
 {
     public static class IntentExtension
     {

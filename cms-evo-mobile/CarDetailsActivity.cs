@@ -9,9 +9,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using cms_evo_mobile.Utils;
+using Cms.Utils;
 
-namespace cms_evo_mobile
+namespace Cms
 {
     [Activity(Label = "CarDetailsActivity")]
     public class CarDetailsActivity : Activity
@@ -26,7 +26,7 @@ namespace cms_evo_mobile
 
             var makeTextView = FindViewById<TextView>(Resource.Id.details_car_make);
 
-            makeTextView.Text = car.Make;
+            //makeTextView.Text = car.Make;
         }
     }
 }

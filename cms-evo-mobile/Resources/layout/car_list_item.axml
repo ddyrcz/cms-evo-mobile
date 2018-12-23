@@ -4,11 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 	<TextView
-         android:id="@+id/list_item_car_make"
+         android:id="@+id/list_item_car_name"
          android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:textColor="#FF7F3300"
-         android:textSize="20dip"
-         android:textStyle="italic"/>
+         android:layout_height="wrap_content"         
+         android:textSize="20dip"/>
+
+	<TextView
+         android:id="@+id/list_item_car_registration_number"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"         
+         android:textSize="12dip"/>
 	
 </LinearLayout>

@@ -9,9 +9,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using cms_evo_mobile.Utils;
+using Cms.Utils;
 
-namespace cms_evo_mobile
+namespace Cms
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class CarsListActivity : Activity
@@ -26,9 +26,9 @@ namespace cms_evo_mobile
 
             _cars = new List<CarModel>
             {
-                new CarModel(Guid.NewGuid(), "Ford Fusion"),
-                new CarModel(Guid.NewGuid(), "Ford C-MAX"),
-                new CarModel(Guid.NewGuid(), "Audo A6")
+                new CarModel(Guid.NewGuid(), "Ford Fusion", "SLU 44AS"),
+                new CarModel(Guid.NewGuid(), "Ford C-MAX", "SLU 52BF"),
+                new CarModel(Guid.NewGuid(), "Audo A6", "SLU GG3Z")
             };
 
             var carsList = FindViewById<ListView>(Resource.Id.carsList);
