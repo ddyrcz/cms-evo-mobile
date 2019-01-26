@@ -7,6 +7,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 
@@ -26,36 +27,35 @@ namespace Cms
         }
     }
 
-    class CarsListAdapter : BaseAdapter<CarModel>
-    {
-        private readonly Activity _context;
+    class CarsListAdapter : RecyclerView.Adapter
+    {        
         private readonly List<CarModel> _cars;
 
-        public CarsListAdapter(Activity context, List<CarModel> cars)
+        public CarsListAdapter(List<CarModel> cars)
             : base()
-        {
-            _context = context;
+        {            
             _cars = cars;
         }
 
-        public override CarModel this[int position] => _cars[position];
+        public override int ItemCount => _cars.Count;
 
-        public override int Count => _cars.Count;
-
-        public override long GetItemId(int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            return position;
+            var carViewHolder = holder as CarViewHolder;
+
+            var car = _cars[position];
+
+            carViewHolder.Name.Text = car.Name;
         }
 
-        public override View GetView(int position, View convertView, ViewGroup parent)
-        {
-            var item = _cars[position];
-            View view = convertView;
-            if (view == null) // no view to re-use, create new
-                view = _context.LayoutInflater.Inflate(Resource.Layout.car_list_item, null);
-            view.FindViewById<TextView>(Resource.Id.list_item_car_name).Text = item.Name;
-            view.FindViewById<TextView>(Resource.Id.list_item_car_registration_number).Text = item.RegistrationNumber;
-            return view;
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+        {            
+            var itemView = LayoutInflater.From(parent.Context).
+                        Inflate(Resource.Layout.car_list_item, parent, false);
+
+            // Create a ViewHolder to hold view references inside the CardView:
+            var carViewHolder = new CarViewHolder(itemView);
+            return carViewHolder;
         }
     }
 }

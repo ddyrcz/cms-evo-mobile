@@ -7,6 +7,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using Cms.Utils;
@@ -16,7 +17,10 @@ namespace Cms
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class CarsListActivity : Activity
     {
-        private List<CarModel> _cars;
+        RecyclerView _recyclerView;
+        RecyclerView.LayoutManager _layoutManager;
+        CarsListAdapter _carsAdapter;
+        List<CarModel> _cars;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,11 +35,13 @@ namespace Cms
                 new CarModel(Guid.NewGuid(), "Audo A6", "SLU GG3Z")
             };
 
-            var carsList = FindViewById<ListView>(Resource.Id.carsList);
+            _carsAdapter = new CarsListAdapter(_cars);
 
-            carsList.Adapter = new CarsListAdapter(this, _cars);
+            _recyclerView = FindViewById<RecyclerView>(Resource.Id.carsListRecyclerView);
 
-            carsList.ItemClick += CarsList_ItemClick;
+            _recyclerView.SetAdapter(_carsAdapter);
+
+            _recyclerView.SetLayoutManager(new LinearLayoutManager(this));
 
         }
 
