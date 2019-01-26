@@ -28,12 +28,12 @@ namespace Cms
     }
 
     class CarsListAdapter : RecyclerView.Adapter
-    {        
+    {
         private readonly List<CarModel> _cars;
 
         public CarsListAdapter(List<CarModel> cars)
             : base()
-        {            
+        {
             _cars = cars;
         }
 
@@ -46,10 +46,11 @@ namespace Cms
             var car = _cars[position];
 
             carViewHolder.Name.Text = car.Name;
+            carViewHolder.RegistrationNumber.Text = car.RegistrationNumber;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
-        {            
+        {
             var itemView = LayoutInflater.From(parent.Context).
                         Inflate(Resource.Layout.car_list_item, parent, false);
 

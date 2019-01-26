@@ -32,7 +32,14 @@ namespace Cms
             {
                 new CarModel(Guid.NewGuid(), "Ford Fusion", "SLU 44AS"),
                 new CarModel(Guid.NewGuid(), "Ford C-MAX", "SLU 52BF"),
-                new CarModel(Guid.NewGuid(), "Audo A6", "SLU GG3Z")
+                new CarModel(Guid.NewGuid(), "Audo A6", "SLU GG3Z"),
+                new CarModel(Guid.NewGuid(), "Renault", "SLU GT44"),
+                new CarModel(Guid.NewGuid(), "Renault", "SLU P2SS"),
+                new CarModel(Guid.NewGuid(), "Renault", "SLU VF56"),
+                new CarModel(Guid.NewGuid(), "Renault", "SLU BOI4"),
+                new CarModel(Guid.NewGuid(), "Renault", "SLU 0IC3"),
+                new CarModel(Guid.NewGuid(), "Iveco", "SLU 8UUH"),
+                new CarModel(Guid.NewGuid(), "Renault Kangoo", "SLU DW21"),
             };
 
             _carsAdapter = new CarsListAdapter(_cars);

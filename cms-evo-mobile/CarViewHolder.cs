@@ -16,10 +16,12 @@ namespace Cms
     class CarViewHolder : RecyclerView.ViewHolder
     {
         public TextView Name { get; private set; }
+        public TextView RegistrationNumber { get; private set; }
 
         public CarViewHolder(View itemView) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.carListItemName);
+            RegistrationNumber = itemView.FindViewById<TextView>(Resource.Id.carListItemRegistrationNumber);
         }
     }
 }

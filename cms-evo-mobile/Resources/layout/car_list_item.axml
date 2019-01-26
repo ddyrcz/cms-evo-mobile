@@ -16,10 +16,18 @@
             android:padding="8dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#333333"                
+                android:layout_height="wrap_content"                
+                android:textColor="#333333"      
+				android.textSize="10sp"
                 android:id="@+id/carListItemName"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="4dp" />
+			<TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"                
+                android:textColor="#333333"                
+				android.textSize="6sp"
+                android:id="@+id/carListItemRegistrationNumber"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="4dp" />
         </LinearLayout>
