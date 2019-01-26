@@ -17,8 +17,7 @@ namespace Cms
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class CarsListActivity : Activity
     {
-        RecyclerView _recyclerView;
-        RecyclerView.LayoutManager _layoutManager;
+        RecyclerView _recyclerView;        
         CarsListAdapter _carsAdapter;
         List<CarModel> _cars;
 
@@ -43,6 +42,7 @@ namespace Cms
             };
 
             _carsAdapter = new CarsListAdapter(_cars);
+            _carsAdapter.CarClicked += CarClicked;
 
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.carsListRecyclerView);
 
@@ -50,6 +50,11 @@ namespace Cms
 
             _recyclerView.SetLayoutManager(new LinearLayoutManager(this));
 
+        }
+
+        private void CarClicked(object sender, Guid carId)
+        {
+            Toast.MakeText(this, "Car clicked! Id: " + carId, ToastLength.Short).Show();
         }
 
         private void CarsList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

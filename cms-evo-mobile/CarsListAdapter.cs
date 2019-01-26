@@ -31,6 +31,8 @@ namespace Cms
     {
         private readonly List<CarModel> _cars;
 
+        public event EventHandler<Guid> CarClicked;
+
         public CarsListAdapter(List<CarModel> cars)
             : base()
         {
@@ -55,8 +57,15 @@ namespace Cms
                         Inflate(Resource.Layout.car_list_item, parent, false);
 
             // Create a ViewHolder to hold view references inside the CardView:
-            var carViewHolder = new CarViewHolder(itemView);
+            var carViewHolder = new CarViewHolder(itemView, CarListItemClicked);
             return carViewHolder;
+        }
+
+        public void CarListItemClicked(int position)
+        {
+            var carClicked = _cars[position];
+
+            CarClicked?.Invoke(this, carClicked.Id);
         }
     }
 }
