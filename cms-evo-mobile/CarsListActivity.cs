@@ -54,7 +54,9 @@ namespace Cms
 
         private void CarClicked(object sender, Guid carId)
         {
-            Toast.MakeText(this, "Car clicked! Id: " + carId, ToastLength.Short).Show();
+            var intent = new Intent(this, typeof(CarDetailsActivity));
+            intent.PutExtra("CarId", carId);
+            StartActivity(intent);
         }
 
         private void CarsList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
