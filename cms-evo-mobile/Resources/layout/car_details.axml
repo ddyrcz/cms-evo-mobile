@@ -19,5 +19,17 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/details_car_registration_number" />
 
+	<TextView		
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/details_car_oc_expiry" />
+
+	<TextView		
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/details_car_ac_expiry" />
+
 
 </LinearLayout>
