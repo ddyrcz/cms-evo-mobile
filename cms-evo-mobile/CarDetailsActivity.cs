@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Cms.Utils;
+using static Cms.Data.ListViewDataStore;
 
 namespace Cms
 {
@@ -22,7 +23,7 @@ namespace Cms
 
             SetContentView(Resource.Layout.car_details);
 
-            var car = Intent.GetExtra<CarModel>("selectedCar");
+            var car = Intent.GetExtra<ListViewCarModel>("selectedCar");
 
             var makeTextView = FindViewById<TextView>(Resource.Id.details_car_make);
 

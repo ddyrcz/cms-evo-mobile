@@ -10,30 +10,19 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using static Cms.Data.ListViewDataStore;
 
 namespace Cms
 {
-    class CarModel
-    {
-        public Guid Id { get; }
-        public string Name { get; }
-        public string RegistrationNumber { get; }
-
-        public CarModel(Guid id, string name, string registrationNumber)
-        {
-            Id = id;
-            Name = name;
-            RegistrationNumber = registrationNumber;
-        }
-    }
+   
 
     class CarsListAdapter : RecyclerView.Adapter
     {
-        private readonly List<CarModel> _cars;
+        private readonly List<ListViewCarModel> _cars;
 
         public event EventHandler<Guid> CarClicked;
 
-        public CarsListAdapter(List<CarModel> cars)
+        public CarsListAdapter(List<ListViewCarModel> cars)
             : base()
         {
             _cars = cars;

@@ -10,7 +10,9 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using Cms.Data;
 using Cms.Utils;
+using static Cms.Data.ListViewDataStore;
 
 namespace Cms
 {
@@ -19,7 +21,7 @@ namespace Cms
     {
         RecyclerView _recyclerView;        
         CarsListAdapter _carsAdapter;
-        List<CarModel> _cars;
+        List<ListViewCarModel> _cars;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,19 +29,7 @@ namespace Cms
 
             SetContentView(Resource.Layout.cars_list);
 
-            _cars = new List<CarModel>
-            {
-                new CarModel(Guid.NewGuid(), "Ford Fusion", "SLU 44AS"),
-                new CarModel(Guid.NewGuid(), "Ford C-MAX", "SLU 52BF"),
-                new CarModel(Guid.NewGuid(), "Audo A6", "SLU GG3Z"),
-                new CarModel(Guid.NewGuid(), "Renault", "SLU GT44"),
-                new CarModel(Guid.NewGuid(), "Renault", "SLU P2SS"),
-                new CarModel(Guid.NewGuid(), "Renault", "SLU VF56"),
-                new CarModel(Guid.NewGuid(), "Renault", "SLU BOI4"),
-                new CarModel(Guid.NewGuid(), "Renault", "SLU 0IC3"),
-                new CarModel(Guid.NewGuid(), "Iveco", "SLU 8UUH"),
-                new CarModel(Guid.NewGuid(), "Renault Kangoo", "SLU DW21"),
-            };
+            _cars = ListViewDataStore.Cars;
 
             _carsAdapter = new CarsListAdapter(_cars);
             _carsAdapter.CarClicked += CarClicked;
