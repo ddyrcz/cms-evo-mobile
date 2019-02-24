@@ -31,15 +31,14 @@ namespace Cms
 
             var car = Data.DetailsViewDataStore.Details[carId];
 
-            var nameTextView = FindViewById<TextView>(Resource.Id.details_car_name);
+            var nameTextView = FindViewById<EditText>(Resource.Id.details_car_name);
             nameTextView.Text = car.Name;
 
-
-            var registrationNumberTextView = FindViewById<TextView>(Resource.Id.details_car_registration_number);
+            var registrationNumberTextView = FindViewById<EditText>(Resource.Id.details_car_registration_number);
             registrationNumberTextView.Text = car.RegistrationNumber;
 
 
-            _registrationNumberOcExpiry = FindViewById<TextView>(Resource.Id.details_car_oc_expiry);
+            _registrationNumberOcExpiry = FindViewById<EditText>(Resource.Id.details_car_oc_expiry);
             _registrationNumberOcExpiry.Text = car.OcExpiry.ToString("dd.MM.yyyy");
             _registrationNumberOcExpiry.Click += RegistrationNumberOcExpiry_Click;
 
