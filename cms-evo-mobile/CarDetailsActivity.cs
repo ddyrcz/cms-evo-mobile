@@ -23,11 +23,16 @@ namespace Cms
 
             SetContentView(Resource.Layout.car_details);
 
-            var car = Intent.GetExtra<ListViewCarModel>("selectedCar");
+            var carId = Intent.GetExtra<Guid>("SelectedCarId");
 
-            var makeTextView = FindViewById<TextView>(Resource.Id.details_car_make);
+            var car = Data.DetailsViewDataStore.Details[carId];
 
-            //makeTextView.Text = car.Make;
+            var nameTextView = FindViewById<TextView>(Resource.Id.details_car_name);
+            nameTextView.Text = car.Name;
+
+
+            var registrationNumberTextView = FindViewById<TextView>(Resource.Id.details_car_registration_number);
+            registrationNumberTextView.Text = car.RegistrationNumber;
         }
     }
 }

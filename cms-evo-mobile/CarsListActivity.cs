@@ -45,19 +45,8 @@ namespace Cms
         private void CarClicked(object sender, Guid carId)
         {
             var intent = new Intent(this, typeof(CarDetailsActivity));
-            intent.PutExtra("CarId", carId);
+            intent.PutExtra("SelectedCarId", carId);
             StartActivity(intent);
-        }
-
-        private void CarsList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            var openDetailsIntent = new Intent(this, typeof(CarDetailsActivity));
-
-            var selectedCar = _cars[e.Position];
-
-            openDetailsIntent.PutExtra("selectedCar", selectedCar);
-
-            StartActivity(openDetailsIntent);
         }
     }
 }

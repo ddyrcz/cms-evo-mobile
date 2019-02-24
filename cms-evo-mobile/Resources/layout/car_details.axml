@@ -7,11 +7,17 @@
 	android:minWidth="25px"
 	android:minHeight="25px">
 	<TextView
-		android:text="Details"
+
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/details_car_make" />
+		android:id="@+id/details_car_name" />
+
+	<TextView		
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/details_car_registration_number" />
 
 
 </LinearLayout>
