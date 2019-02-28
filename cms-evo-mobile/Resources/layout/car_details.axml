@@ -10,70 +10,80 @@
 
 	<LinearLayout android:orientation="vertical" 
 		 android:layout_width="match_parent"
-		android:layout_height="wrap_content" >
+		android:layout_height="wrap_content"
+		android:layout_margin="15px">
 		<TextView
 			android:text="Nazwa:"          			
 			android:gravity="center"
 			android:textSize="10sp"
+			android:layout_marginLeft="10px"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"    />
 		<EditText		
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:textSize="14sp"
+			android:textSize="12sp"
 			android:id="@+id/details_car_name" />
 	</LinearLayout>
 	
 	<LinearLayout android:orientation="vertical" 
 		 android:layout_width="match_parent"
-		android:layout_height="wrap_content" >
+		android:layout_height="wrap_content"
+		android:layout_margin="15px">
 		<TextView
 			android:text="Nr. Rejestracyjny:"          			
 			android:textSize="10sp"
 			android:gravity="center"
+			android:layout_marginLeft="10px"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"    />
 		<EditText		
 			android:textAppearance="?android:attr/textAppearanceLarge"
 			android:layout_width="match_parent"
-			android:textSize="14sp"
+			android:textSize="12sp"
 			android:layout_height="wrap_content"
 			android:id="@+id/details_car_registration_number" />
 	</LinearLayout>
 
 	<LinearLayout android:orientation="vertical" 
 		 android:layout_width="match_parent"
-		android:layout_height="wrap_content" >
+		android:layout_height="wrap_content" 
+		android:layout_margin="15px">
 		<TextView
 			android:text="OC:"          			
 			android:textSize="10sp"
-			android:gravity="center"
+			android:gravity="center"			
+			android:layout_marginLeft="10px"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"    />
 		<EditText
 			android:textAppearance="?android:attr/textAppearanceLarge"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"			
-			android:editable="false"
-			android:textSize="14sp"
+			android:editable="true"
+			android:focusable="false"
+			android:textSize="12sp"
 			android:id="@+id/details_car_oc_expiry" />
 	</LinearLayout>
 
 	<LinearLayout android:orientation="vertical" 
 		 android:layout_width="match_parent"
-		android:layout_height="wrap_content" >
+		android:layout_height="wrap_content"
+		android:layout_margin="15px">
 		<TextView
 			android:text="AC:"          			
 			android:textSize="10sp"
 			android:gravity="center"
+			android:layout_marginLeft="10px"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"    />
 		<EditText
 			android:textAppearance="?android:attr/textAppearanceLarge"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"			
-			android:editable="false"
-			android:textSize="14sp"
+			android:editable="true"
+			android:textSize="12sp"
+			android:focusable="false"
 			android:id="@+id/details_car_ac_expiry" />
 	</LinearLayout>
 

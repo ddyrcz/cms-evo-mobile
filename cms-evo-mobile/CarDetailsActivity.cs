@@ -43,7 +43,7 @@ namespace Cms
             _registrationNumberOcExpiry.Click += RegistrationNumberOcExpiry_Click;
 
 
-            _registrationNumberAcExpiry = FindViewById<TextView>(Resource.Id.details_car_ac_expiry);
+            _registrationNumberAcExpiry = FindViewById<EditText>(Resource.Id.details_car_ac_expiry);
             _registrationNumberAcExpiry.Text = car.OcExpiry.ToString("dd.MM.yyyy");
             _registrationNumberAcExpiry.Click += RegistrationNumberAcExpiry_Click;
         }
