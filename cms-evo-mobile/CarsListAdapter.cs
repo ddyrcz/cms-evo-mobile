@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.Widget;
@@ -38,6 +39,14 @@ namespace Cms
 
             carViewHolder.Name.Text = car.Name;
             carViewHolder.RegistrationNumber.Text = car.RegistrationNumber;
+
+            if (car.ApproachingExpiration)
+            {
+                carViewHolder.CardView.SetCardBackgroundColor(Color.ParseColor("#f98989"));
+                carViewHolder.Name.SetTextColor(Color.White);
+                carViewHolder.RegistrationNumber.SetTextColor(Color.White);
+            }
+
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

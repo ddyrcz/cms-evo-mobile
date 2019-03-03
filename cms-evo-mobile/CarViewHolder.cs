@@ -17,11 +17,14 @@ namespace Cms
     {
         public TextView Name { get; private set; }
         public TextView RegistrationNumber { get; private set; }
+        public CardView CardView { get; private set; }
 
         public CarViewHolder(View itemView, Action<int> clickListener) : base(itemView)
-        {
+        {   
             Name = itemView.FindViewById<TextView>(Resource.Id.carListItemName);
             RegistrationNumber = itemView.FindViewById<TextView>(Resource.Id.carListItemRegistrationNumber);
+            CardView = itemView.FindViewById<CardView>(Resource.Id.car_list_item_card_view);
+
 
             itemView.Click += (sender, e) => clickListener(base.LayoutPosition);
         }
