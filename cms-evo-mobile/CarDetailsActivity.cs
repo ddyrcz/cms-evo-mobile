@@ -30,6 +30,8 @@ namespace Cms
         {
             base.OnCreate(savedInstanceState);
 
+            Window.SetSoftInputMode(SoftInput.StateAlwaysHidden);
+
             RequestWindowFeature(WindowFeatures.NoTitle);
 
             SetContentView(Resource.Layout.car_details);
