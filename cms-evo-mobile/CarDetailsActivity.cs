@@ -30,6 +30,8 @@ namespace Cms
         {
             base.OnCreate(savedInstanceState);
 
+            RequestWindowFeature(WindowFeatures.NoTitle);
+
             SetContentView(Resource.Layout.car_details);
 
             var carId = Intent.GetExtra<Guid>("SelectedCarId");
