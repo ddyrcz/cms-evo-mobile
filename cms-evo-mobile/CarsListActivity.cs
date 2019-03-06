@@ -49,7 +49,8 @@ namespace Cms
 
         private void AddCarClicked(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Create car clicked!", ToastLength.Short).Show();
+            var intent = new Intent(this, typeof(CreateCarActivity));           
+            StartActivity(intent);
         }
 
         private void CarClicked(object sender, Guid carId)
