@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using Cms.Data;
 using Cms.Utils;
+using Refractored.Fab;
 using static Cms.Data.ListViewDataStore;
 
 namespace Cms
@@ -40,6 +41,15 @@ namespace Cms
 
             _recyclerView.SetLayoutManager(new LinearLayoutManager(this));
 
+            var fab = FindViewById<FloatingActionButton>(Resource.Id.add_car_button);
+            fab.AttachToRecyclerView(_recyclerView);
+            fab.Click += AddCarClicked;
+
+        }
+
+        private void AddCarClicked(object sender, EventArgs e)
+        {
+            Toast.MakeText(this, "Create car clicked!", ToastLength.Short).Show();
         }
 
         private void CarClicked(object sender, Guid carId)
