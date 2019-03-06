@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Cms.Http;
 using Cms.Utils;
 using Utils;
 using static Cms.Data.ListViewDataStore;
@@ -38,7 +39,8 @@ namespace Cms
 
             var carId = Intent.GetExtra<Guid>("SelectedCarId");
 
-            var car = Data.DetailsViewDataStore.Details[carId];
+            var client = new GetCarDetailsClient();
+            var car = client.GetCarDetails(carId);
 
             var nameTextView = FindViewById<EditText>(Resource.Id.details_car_name);
             nameTextView.Text = car.Name;
@@ -104,12 +106,43 @@ namespace Cms
         }
 
         private void RegistrationNumberOcExpiry_Click(object sender, EventArgs e)
-        {            
+        {
             var datePickerFragment = DatePickerFragment.NewInstance(delegate (DateTime time)
             {
                 _registrationNumberOcExpiry.Text = time.ToString(DateFormat);
             });
             datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
         }
+    }
+
+    public class DetailsViewCarModel
+    {
+        public DetailsViewCarModel(Guid id,
+            string name,
+            string registrationNumber,
+            DateTime termTechnicalResearch,
+            DateTime ocExpiry,
+            DateTime? acExpiry,
+            DateTime? liftUdtExpiry,
+            DateTime? tachoLegalizationExpiry)
+        {
+            Id = id;
+            Name = name;
+            RegistrationNumber = registrationNumber;
+            TermTechnicalResearch = termTechnicalResearch;
+            OcExpiry = ocExpiry;
+            AcExpiry = acExpiry;
+            LiftUdtExpiry = liftUdtExpiry;
+            TachoLegalizationExpiry = tachoLegalizationExpiry;
+        }
+
+        public Guid Id { get; }
+        public string Name { get; }
+        public string RegistrationNumber { get; }
+        public DateTime TermTechnicalResearch { get; }
+        public DateTime OcExpiry { get; }
+        public DateTime? AcExpiry { get; }
+        public DateTime? LiftUdtExpiry { get; }
+        public DateTime? TachoLegalizationExpiry { get; }
     }
 }

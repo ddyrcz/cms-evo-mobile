@@ -14,25 +14,6 @@ namespace Cms.Data
 {
     static class ListViewDataStore
     {
-        public class ListViewCarModel
-        {
-            public Guid Id { get; }
-            public string Name { get; }
-            public string RegistrationNumber { get; }
-            public bool ApproachingExpiration { get; }
-
-            public ListViewCarModel(Guid id, 
-                string name,
-                string registrationNumber,
-                bool approachingExpiration)
-            {
-                Id = id;
-                Name = name;
-                RegistrationNumber = registrationNumber;
-                ApproachingExpiration = approachingExpiration;
-            }
-        }
-
         static public List<ListViewCarModel> Cars = new List<ListViewCarModel>
             {
                 new ListViewCarModel(new Guid("65777ad6-87b7-4491-b827-42b4a819dcaa"),
@@ -80,36 +61,7 @@ namespace Cms.Data
 
     static class DetailsViewDataStore
     {
-        public class DetailsViewCarModel
-        {
-            public DetailsViewCarModel(Guid id, 
-                string name,
-                string registrationNumber, 
-                DateTime termTechnicalResearch, 
-                DateTime ocExpiry, 
-                DateTime? acExpiry,
-                DateTime? liftUdtExpiry,
-                DateTime? tachoLegalizationExpiry)
-            {
-                Id = id;
-                Name = name;
-                RegistrationNumber = registrationNumber;
-                TermTechnicalResearch = termTechnicalResearch;
-                OcExpiry = ocExpiry;
-                AcExpiry = acExpiry;
-                LiftUdtExpiry = liftUdtExpiry;
-                TachoLegalizationExpiry = tachoLegalizationExpiry;
-            }
-
-            public Guid Id { get; }
-            public string Name { get; }
-            public string RegistrationNumber { get; }
-            public DateTime TermTechnicalResearch { get; }
-            public DateTime OcExpiry { get; }
-            public DateTime? AcExpiry { get; }            
-            public DateTime? LiftUdtExpiry { get;  }
-            public DateTime? TachoLegalizationExpiry { get; }
-        }
+      
 
         public static Dictionary<Guid, DetailsViewCarModel> Details =
             new Dictionary<Guid, DetailsViewCarModel>()

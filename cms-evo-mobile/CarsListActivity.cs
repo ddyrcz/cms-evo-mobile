@@ -30,7 +30,11 @@ namespace Cms
 
             SetContentView(Resource.Layout.cars_list);
 
-            _cars = ListViewDataStore.Cars;
+
+            var service = new Http.GetCarsClient();
+            var cars = service.GetCars();
+
+            _cars = cars;
 
             _carsAdapter = new CarsListAdapter(_cars);
             _carsAdapter.CarClicked += CarClicked;
@@ -58,6 +62,25 @@ namespace Cms
             var intent = new Intent(this, typeof(CarDetailsActivity));
             intent.PutExtra("SelectedCarId", carId);
             StartActivity(intent);
+        }
+    }
+
+    public class ListViewCarModel
+    {
+        public Guid Id { get; }
+        public string Name { get; }
+        public string RegistrationNumber { get; }
+        public bool ApproachingExpiration { get; }
+
+        public ListViewCarModel(Guid id,
+            string name,
+            string registrationNumber,
+            bool approachingExpiration)
+        {
+            Id = id;
+            Name = name;
+            RegistrationNumber = registrationNumber;
+            ApproachingExpiration = approachingExpiration;
         }
     }
 }
