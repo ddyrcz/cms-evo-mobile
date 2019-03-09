@@ -49,7 +49,7 @@ namespace Cms
             registrationNumberTextView.Text = car.RegistrationNumber;
 
             _technicalTermResearch = FindViewById<EditText>(Resource.Id.details_car_term_technical_research);
-            _technicalTermResearch.Text = car.OcExpiry.ToString(DateFormat);
+            _technicalTermResearch.Text = car.TermTechnicalResearch.ToString(DateFormat);
             _technicalTermResearch.Click += TechnicalTermResearch_Click;
 
             _registrationNumberOcExpiry = FindViewById<EditText>(Resource.Id.details_car_oc_expiry);
@@ -57,15 +57,15 @@ namespace Cms
             _registrationNumberOcExpiry.Click += RegistrationNumberOcExpiry_Click;
 
             _registrationNumberAcExpiry = FindViewById<EditText>(Resource.Id.details_car_ac_expiry);
-            _registrationNumberAcExpiry.Text = car.OcExpiry.ToString(DateFormat);
+            _registrationNumberAcExpiry.Text = car.AcExpiry?.ToString(DateFormat);
             _registrationNumberAcExpiry.Click += RegistrationNumberAcExpiry_Click;
 
             _liftUdtExpiry = FindViewById<EditText>(Resource.Id.details_car_lift_udt_expiry);
-            _liftUdtExpiry.Text = car.OcExpiry.ToString(DateFormat);
+            _liftUdtExpiry.Text = car.LiftUdtExpiry?.ToString(DateFormat);
             _liftUdtExpiry.Click += LiftUdtExpiry_Click;
 
             _tachoLegalizationExpiry = FindViewById<EditText>(Resource.Id.details_car_tacho_legalization_expiry);
-            _tachoLegalizationExpiry.Text = car.OcExpiry.ToString(DateFormat);
+            _tachoLegalizationExpiry.Text = car.TachoLegalizationExpiry?.ToString(DateFormat);
             _tachoLegalizationExpiry.Click += TachoLegalizationExpiry_Click;
         }
 
