@@ -128,11 +128,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\car_details.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\car_list_item.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -146,16 +141,11 @@
     <AndroidResource Include="Resources\drawable\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\create_car.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\done.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\http.axml">
-      <SubType>Designer</SubType>
+    <AndroidResource Include="Resources\layout\car_details.axml" >
+	<SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -30,7 +30,7 @@ namespace Cms
 
             RequestWindowFeature(WindowFeatures.NoTitle);
 
-            SetContentView(Resource.Layout.create_car);
+            SetContentView(Resource.Layout.car_details);
 
             _technicalTermResearch = FindViewById<EditText>(Resource.Id.details_car_term_technical_research);            
             _technicalTermResearch.Click += TechnicalTermResearch_Click;

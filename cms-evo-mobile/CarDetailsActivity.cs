@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Cms.Http;
 using Cms.Utils;
+using Refractored.Fab;
 using Utils;
 using static Cms.Data.ListViewDataStore;
 
@@ -21,11 +22,13 @@ namespace Cms
     {
         const string DateFormat = "dd.MM.yyyy";
 
+        bool _isDataInitialized = false;
         TextView _technicalTermResearch;
         TextView _registrationNumberOcExpiry;
         TextView _registrationNumberAcExpiry;
         TextView _liftUdtExpiry;
         TextView _tachoLegalizationExpiry;
+        FloatingActionButton _fabButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -42,33 +45,46 @@ namespace Cms
             var client = new GetCarDetailsClient();
             var car = client.GetCarDetails(carId);
 
+            _fabButton = FindViewById<FloatingActionButton>(Resource.Id.fab_button);
+            _fabButton.Visibility = ViewStates.Gone;
+
             var nameTextView = FindViewById<EditText>(Resource.Id.details_car_name);
+            nameTextView.TextChanged += (obj, args) => DataChanged();
             nameTextView.Text = car.Name;
 
             var registrationNumberTextView = FindViewById<EditText>(Resource.Id.details_car_registration_number);
+            registrationNumberTextView.TextChanged += (obj, args) => DataChanged();
             registrationNumberTextView.Text = car.RegistrationNumber;
 
             _technicalTermResearch = FindViewById<EditText>(Resource.Id.details_car_term_technical_research);
             _technicalTermResearch.Text = car.TermTechnicalResearch.ToString(DateFormat);
+            _technicalTermResearch.TextChanged += (obj, args) => DataChanged();
             _technicalTermResearch.Click += TechnicalTermResearch_Click;
 
             _registrationNumberOcExpiry = FindViewById<EditText>(Resource.Id.details_car_oc_expiry);
             _registrationNumberOcExpiry.Text = car.OcExpiry.ToString(DateFormat);
+            _registrationNumberOcExpiry.TextChanged += (obj, args) => DataChanged();
             _registrationNumberOcExpiry.Click += RegistrationNumberOcExpiry_Click;
 
             _registrationNumberAcExpiry = FindViewById<EditText>(Resource.Id.details_car_ac_expiry);
             _registrationNumberAcExpiry.Text = car.AcExpiry?.ToString(DateFormat);
+            _registrationNumberAcExpiry.TextChanged += (obj, args) => DataChanged();
             _registrationNumberAcExpiry.Click += RegistrationNumberAcExpiry_Click;
 
             _liftUdtExpiry = FindViewById<EditText>(Resource.Id.details_car_lift_udt_expiry);
             _liftUdtExpiry.Text = car.LiftUdtExpiry?.ToString(DateFormat);
+            _liftUdtExpiry.TextChanged += (obj, args) => DataChanged();
             _liftUdtExpiry.Click += LiftUdtExpiry_Click;
 
             _tachoLegalizationExpiry = FindViewById<EditText>(Resource.Id.details_car_tacho_legalization_expiry);
             _tachoLegalizationExpiry.Text = car.TachoLegalizationExpiry?.ToString(DateFormat);
+            _tachoLegalizationExpiry.TextChanged += (obj, args) => DataChanged();
             _tachoLegalizationExpiry.Click += TachoLegalizationExpiry_Click;
-        }
 
+            _isDataInitialized = true;
+            
+        }
+        
         private void TachoLegalizationExpiry_Click(object sender, EventArgs e)
         {
             var datePickerFragment = DatePickerFragment.NewInstance(delegate (DateTime time)
@@ -112,6 +128,14 @@ namespace Cms
                 _registrationNumberOcExpiry.Text = time.ToString(DateFormat);
             });
             datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
+        }
+
+        private void DataChanged()
+        {
+            if (_isDataInitialized)
+            {
+                _fabButton.Visibility = ViewStates.Visible;
+            }
         }
     }
 
