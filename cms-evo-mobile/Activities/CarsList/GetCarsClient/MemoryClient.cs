@@ -6,7 +6,7 @@ namespace CmsDroid.Activities.CarsList.GetCarsClient
     {
         public List<CarsListViewModel> GetCars()
         {
-            throw new System.NotImplementedException();
+            return MemoryData.Cars;
         }
     }
 }

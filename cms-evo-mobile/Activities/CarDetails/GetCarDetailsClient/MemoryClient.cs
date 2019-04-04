@@ -16,7 +16,7 @@ namespace CmsDroid.Activities.CarDetails.GetCarDetailsClient
     {
         public CarDetailsViewModel GetDetails(Guid carId)
         {
-            throw new NotImplementedException();
+            return MemoryData.Details[carId];
         }
     }
 }
