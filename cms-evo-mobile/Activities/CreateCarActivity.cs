@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Utils;
 
-namespace Cms
+namespace CmsDroid.Activities
 {
     [Activity(Label = "CreateCarActivity")]
     public class CreateCarActivity : Activity

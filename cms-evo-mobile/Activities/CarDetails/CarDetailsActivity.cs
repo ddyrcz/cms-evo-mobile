@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -12,11 +12,11 @@ using Android.Views;
 using Android.Widget;
 using Cms.Http;
 using Cms.Utils;
+using CmsDroid.Activities.CarDetails.GetCarDetailsClient;
 using Refractored.Fab;
 using Utils;
-using static Cms.Data.ListViewDataStore;
 
-namespace Cms
+namespace CmsDroid.Activities.CarDetails
 {
     [Activity(Label = "CarDetailsActivity")]
     public class CarDetailsActivity : Activity
@@ -45,8 +45,8 @@ namespace Cms
 
             var carId = Intent.GetExtra<Guid>("SelectedCarId");
 
-            var client = new GetCarDetailsClient();
-            var car = client.GetCarDetails(carId);
+            var getCarDetailsClient = GetCarDetailsClientFactory.Get();
+            var car = getCarDetailsClient.GetDetails(carId);
 
             _fabButton = FindViewById<FloatingActionButton>(Resource.Id.fab_button);
             _fabButton.Visibility = ViewStates.Gone;
@@ -163,36 +163,5 @@ namespace Cms
                 _fabButton.Visibility = ViewStates.Visible;
             }
         }
-    }
-
-    public class DetailsViewCarModel
-    {
-        public DetailsViewCarModel(Guid id,
-            string name,
-            string registrationNumber,
-            DateTime termTechnicalResearch,
-            DateTime ocExpiry,
-            DateTime? acExpiry,
-            DateTime? liftUdtExpiry,
-            DateTime? tachoLegalizationExpiry)
-        {
-            Id = id;
-            Name = name;
-            RegistrationNumber = registrationNumber;
-            TermTechnicalResearch = termTechnicalResearch;
-            OcExpiry = ocExpiry;
-            AcExpiry = acExpiry;
-            LiftUdtExpiry = liftUdtExpiry;
-            TachoLegalizationExpiry = tachoLegalizationExpiry;
-        }
-
-        public Guid Id { get; }
-        public string Name { get; }
-        public string RegistrationNumber { get; }
-        public DateTime TermTechnicalResearch { get; }
-        public DateTime OcExpiry { get; }
-        public DateTime? AcExpiry { get; }
-        public DateTime? LiftUdtExpiry { get; }
-        public DateTime? TachoLegalizationExpiry { get; }
     }
 }

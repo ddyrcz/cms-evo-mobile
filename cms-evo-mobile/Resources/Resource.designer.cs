@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Cms.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("CmsDroid.Resource", IsApplication=true)]
 
-namespace Cms
+namespace CmsDroid
 {
 	
 	
@@ -26,44 +26,44 @@ namespace Cms
 		
 		public static void UpdateIdValues()
 		{
-			global::Refractored.Fab.Resource.Attribute.fab_colorDisabled = global::Cms.Resource.Attribute.fab_colorDisabled;
-			global::Refractored.Fab.Resource.Attribute.fab_colorNormal = global::Cms.Resource.Attribute.fab_colorNormal;
-			global::Refractored.Fab.Resource.Attribute.fab_colorPressed = global::Cms.Resource.Attribute.fab_colorPressed;
-			global::Refractored.Fab.Resource.Attribute.fab_colorRipple = global::Cms.Resource.Attribute.fab_colorRipple;
-			global::Refractored.Fab.Resource.Attribute.fab_shadow = global::Cms.Resource.Attribute.fab_shadow;
-			global::Refractored.Fab.Resource.Attribute.fab_size = global::Cms.Resource.Attribute.fab_size;
-			global::Refractored.Fab.Resource.Attribute.layoutManager = global::Cms.Resource.Attribute.layoutManager;
-			global::Refractored.Fab.Resource.Attribute.reverseLayout = global::Cms.Resource.Attribute.reverseLayout;
-			global::Refractored.Fab.Resource.Attribute.spanCount = global::Cms.Resource.Attribute.spanCount;
-			global::Refractored.Fab.Resource.Attribute.stackFromEnd = global::Cms.Resource.Attribute.stackFromEnd;
-			global::Refractored.Fab.Resource.Color.fab_material_blue_500 = global::Cms.Resource.Color.fab_material_blue_500;
-			global::Refractored.Fab.Resource.Dimension.fab_elevation_lollipop = global::Cms.Resource.Dimension.fab_elevation_lollipop;
-			global::Refractored.Fab.Resource.Dimension.fab_scroll_threshold = global::Cms.Resource.Dimension.fab_scroll_threshold;
-			global::Refractored.Fab.Resource.Dimension.fab_shadow_size = global::Cms.Resource.Dimension.fab_shadow_size;
-			global::Refractored.Fab.Resource.Dimension.fab_size_mini = global::Cms.Resource.Dimension.fab_size_mini;
-			global::Refractored.Fab.Resource.Dimension.fab_size_normal = global::Cms.Resource.Dimension.fab_size_normal;
-			global::Refractored.Fab.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::Cms.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
-			global::Refractored.Fab.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::Cms.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
-			global::Refractored.Fab.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::Cms.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
-			global::Refractored.Fab.Resource.Drawable.fab_shadow = global::Cms.Resource.Drawable.fab_shadow;
-			global::Refractored.Fab.Resource.Drawable.fab_shadow_mini = global::Cms.Resource.Drawable.fab_shadow_mini;
-			global::Refractored.Fab.Resource.Id.item_touch_helper_previous_elevation = global::Cms.Resource.Id.item_touch_helper_previous_elevation;
-			global::Refractored.Fab.Resource.Id.mini = global::Cms.Resource.Id.mini;
-			global::Refractored.Fab.Resource.Id.normal = global::Cms.Resource.Id.normal;
-			global::Refractored.Fab.Resource.Styleable.FloatingActionButton = global::Cms.Resource.Styleable.FloatingActionButton;
-			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_colorDisabled = global::Cms.Resource.Styleable.FloatingActionButton_fab_colorDisabled;
-			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_colorNormal = global::Cms.Resource.Styleable.FloatingActionButton_fab_colorNormal;
-			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_colorPressed = global::Cms.Resource.Styleable.FloatingActionButton_fab_colorPressed;
-			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_colorRipple = global::Cms.Resource.Styleable.FloatingActionButton_fab_colorRipple;
-			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_shadow = global::Cms.Resource.Styleable.FloatingActionButton_fab_shadow;
-			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_size = global::Cms.Resource.Styleable.FloatingActionButton_fab_size;
-			global::Refractored.Fab.Resource.Styleable.RecyclerView = global::Cms.Resource.Styleable.RecyclerView;
-			global::Refractored.Fab.Resource.Styleable.RecyclerView_android_descendantFocusability = global::Cms.Resource.Styleable.RecyclerView_android_descendantFocusability;
-			global::Refractored.Fab.Resource.Styleable.RecyclerView_android_orientation = global::Cms.Resource.Styleable.RecyclerView_android_orientation;
-			global::Refractored.Fab.Resource.Styleable.RecyclerView_layoutManager = global::Cms.Resource.Styleable.RecyclerView_layoutManager;
-			global::Refractored.Fab.Resource.Styleable.RecyclerView_reverseLayout = global::Cms.Resource.Styleable.RecyclerView_reverseLayout;
-			global::Refractored.Fab.Resource.Styleable.RecyclerView_spanCount = global::Cms.Resource.Styleable.RecyclerView_spanCount;
-			global::Refractored.Fab.Resource.Styleable.RecyclerView_stackFromEnd = global::Cms.Resource.Styleable.RecyclerView_stackFromEnd;
+			global::Refractored.Fab.Resource.Attribute.fab_colorDisabled = global::CmsDroid.Resource.Attribute.fab_colorDisabled;
+			global::Refractored.Fab.Resource.Attribute.fab_colorNormal = global::CmsDroid.Resource.Attribute.fab_colorNormal;
+			global::Refractored.Fab.Resource.Attribute.fab_colorPressed = global::CmsDroid.Resource.Attribute.fab_colorPressed;
+			global::Refractored.Fab.Resource.Attribute.fab_colorRipple = global::CmsDroid.Resource.Attribute.fab_colorRipple;
+			global::Refractored.Fab.Resource.Attribute.fab_shadow = global::CmsDroid.Resource.Attribute.fab_shadow;
+			global::Refractored.Fab.Resource.Attribute.fab_size = global::CmsDroid.Resource.Attribute.fab_size;
+			global::Refractored.Fab.Resource.Attribute.layoutManager = global::CmsDroid.Resource.Attribute.layoutManager;
+			global::Refractored.Fab.Resource.Attribute.reverseLayout = global::CmsDroid.Resource.Attribute.reverseLayout;
+			global::Refractored.Fab.Resource.Attribute.spanCount = global::CmsDroid.Resource.Attribute.spanCount;
+			global::Refractored.Fab.Resource.Attribute.stackFromEnd = global::CmsDroid.Resource.Attribute.stackFromEnd;
+			global::Refractored.Fab.Resource.Color.fab_material_blue_500 = global::CmsDroid.Resource.Color.fab_material_blue_500;
+			global::Refractored.Fab.Resource.Dimension.fab_elevation_lollipop = global::CmsDroid.Resource.Dimension.fab_elevation_lollipop;
+			global::Refractored.Fab.Resource.Dimension.fab_scroll_threshold = global::CmsDroid.Resource.Dimension.fab_scroll_threshold;
+			global::Refractored.Fab.Resource.Dimension.fab_shadow_size = global::CmsDroid.Resource.Dimension.fab_shadow_size;
+			global::Refractored.Fab.Resource.Dimension.fab_size_mini = global::CmsDroid.Resource.Dimension.fab_size_mini;
+			global::Refractored.Fab.Resource.Dimension.fab_size_normal = global::CmsDroid.Resource.Dimension.fab_size_normal;
+			global::Refractored.Fab.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::CmsDroid.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
+			global::Refractored.Fab.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::CmsDroid.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
+			global::Refractored.Fab.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::CmsDroid.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
+			global::Refractored.Fab.Resource.Drawable.fab_shadow = global::CmsDroid.Resource.Drawable.fab_shadow;
+			global::Refractored.Fab.Resource.Drawable.fab_shadow_mini = global::CmsDroid.Resource.Drawable.fab_shadow_mini;
+			global::Refractored.Fab.Resource.Id.item_touch_helper_previous_elevation = global::CmsDroid.Resource.Id.item_touch_helper_previous_elevation;
+			global::Refractored.Fab.Resource.Id.mini = global::CmsDroid.Resource.Id.mini;
+			global::Refractored.Fab.Resource.Id.normal = global::CmsDroid.Resource.Id.normal;
+			global::Refractored.Fab.Resource.Styleable.FloatingActionButton = global::CmsDroid.Resource.Styleable.FloatingActionButton;
+			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_colorDisabled = global::CmsDroid.Resource.Styleable.FloatingActionButton_fab_colorDisabled;
+			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_colorNormal = global::CmsDroid.Resource.Styleable.FloatingActionButton_fab_colorNormal;
+			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_colorPressed = global::CmsDroid.Resource.Styleable.FloatingActionButton_fab_colorPressed;
+			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_colorRipple = global::CmsDroid.Resource.Styleable.FloatingActionButton_fab_colorRipple;
+			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_shadow = global::CmsDroid.Resource.Styleable.FloatingActionButton_fab_shadow;
+			global::Refractored.Fab.Resource.Styleable.FloatingActionButton_fab_size = global::CmsDroid.Resource.Styleable.FloatingActionButton_fab_size;
+			global::Refractored.Fab.Resource.Styleable.RecyclerView = global::CmsDroid.Resource.Styleable.RecyclerView;
+			global::Refractored.Fab.Resource.Styleable.RecyclerView_android_descendantFocusability = global::CmsDroid.Resource.Styleable.RecyclerView_android_descendantFocusability;
+			global::Refractored.Fab.Resource.Styleable.RecyclerView_android_orientation = global::CmsDroid.Resource.Styleable.RecyclerView_android_orientation;
+			global::Refractored.Fab.Resource.Styleable.RecyclerView_layoutManager = global::CmsDroid.Resource.Styleable.RecyclerView_layoutManager;
+			global::Refractored.Fab.Resource.Styleable.RecyclerView_reverseLayout = global::CmsDroid.Resource.Styleable.RecyclerView_reverseLayout;
+			global::Refractored.Fab.Resource.Styleable.RecyclerView_spanCount = global::CmsDroid.Resource.Styleable.RecyclerView_spanCount;
+			global::Refractored.Fab.Resource.Styleable.RecyclerView_stackFromEnd = global::CmsDroid.Resource.Styleable.RecyclerView_stackFromEnd;
 		}
 		
 		public partial class Animation

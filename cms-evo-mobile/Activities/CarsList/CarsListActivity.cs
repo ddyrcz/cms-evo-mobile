@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,19 +10,19 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-using Cms.Data;
 using Cms.Utils;
+using CmsDroid.Activities.CarDetails;
+using CmsDroid.Activities.CarsList.GetCarsClient;
 using Refractored.Fab;
-using static Cms.Data.ListViewDataStore;
 
-namespace Cms
+namespace CmsDroid.Activities.CarsList
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class CarsListActivity : Activity
     {
         RecyclerView _recyclerView;        
         CarsListAdapter _carsAdapter;
-        List<ListViewCarModel> _cars;
+        List<CarsListViewModel> _cars;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -30,9 +30,8 @@ namespace Cms
 
             SetContentView(Resource.Layout.cars_list);
 
-
-            var service = new Http.GetCarsClient();
-            var cars = service.GetCars();
+            var getCarsClient = GetCarsClientFactory.Get();
+            var cars = getCarsClient.GetCars();
 
             _cars = cars;
 
@@ -62,25 +61,6 @@ namespace Cms
             var intent = new Intent(this, typeof(CarDetailsActivity));
             intent.PutExtra("SelectedCarId", carId);
             StartActivity(intent);
-        }
-    }
-
-    public class ListViewCarModel
-    {
-        public Guid Id { get; }
-        public string Name { get; }
-        public string RegistrationNumber { get; }
-        public bool ApproachingExpiration { get; }
-
-        public ListViewCarModel(Guid id,
-            string name,
-            string registrationNumber,
-            bool approachingExpiration)
-        {
-            Id = id;
-            Name = name;
-            RegistrationNumber = registrationNumber;
-            ApproachingExpiration = approachingExpiration;
         }
     }
 }

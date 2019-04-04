@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -12,11 +12,11 @@ using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
 
-namespace Cms.Http
+namespace CmsDroid.Activities.CarsList.GetCarsClient
 {
-    class GetCarsClient
+    class RemoteClient : IGetCarsClient 
     {
-        public  List<ListViewCarModel> GetCars()
+        public  List<CarsListViewModel> GetCars()
         {
             using (var http = new HttpClient())
             {
@@ -32,7 +32,7 @@ namespace Cms.Http
 
         class GetCarsResponse
         {
-            public List<ListViewCarModel> Cars { get; set; }
+            public List<CarsListViewModel> Cars { get; set; }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 
-namespace Cms
+namespace CmsDroid.Activities.CarsList
 {
     class CarViewHolder : RecyclerView.ViewHolder
     {

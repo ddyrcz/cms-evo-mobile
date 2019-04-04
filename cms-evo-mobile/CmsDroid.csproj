@@ -10,7 +10,7 @@
     <TemplateGuid>{84dd83c5-0fe3-4294-9419-09e7c8ba324f}</TemplateGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cms</RootNamespace>
+    <RootNamespace>CmsDroid</RootNamespace>
     <AssemblyName>CmsEvoMobile</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>True</AndroidApplication>
@@ -60,17 +60,27 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarDetailsActivity.cs" />
-    <Compile Include="CarsListActivity.cs" />
-    <Compile Include="CarsListAdapter.cs" />
-    <Compile Include="CarViewHolder.cs" />
-    <Compile Include="CreateCarActivity.cs" />
-    <Compile Include="Data\DataStore.cs" />
-    <Compile Include="Http\GetCarDetailsClient.cs" />
-    <Compile Include="Http\GetCarsClient.cs" />
+    <Compile Include="Activities\CarDetails\CarDetailsActivity.cs" />
+    <Compile Include="Activities\CarDetails\CarDetailsViewModel.cs" />
+    <Compile Include="Activities\CarDetails\GetCarDetailsClient\MemoryData.cs" />
+    <Compile Include="Activities\CarDetails\GetCarDetailsClient\MemoryClient.cs" />
+    <Compile Include="Activities\CarsList\CarsListActivity.cs" />
+    <Compile Include="Activities\CarsList\CarsListAdapter.cs" />
+    <Compile Include="Activities\CarsList\GetCarsClient\GetCarsClientFactory.cs" />
+    <Compile Include="Activities\CarsList\GetCarsClient\IGetCarsClient.cs" />
+    <Compile Include="Activities\CarsList\CarsListViewModel.cs" />
+    <Compile Include="Activities\CarsList\GetCarsClient\MemoryClient.cs" />
+    <Compile Include="Activities\CarsList\GetCarsClient\MemoryData.cs" />
+    <Compile Include="Activities\CarsList\CarViewHolder.cs" />
+    <Compile Include="Activities\CreateCarActivity.cs" />
+    <Compile Include="Activities\CarDetails\GetCarDetailsClient\RemoteClient.cs" />
+    <Compile Include="Activities\CarDetails\GetCarDetailsClient\GetCarDetailsClientFactory.cs" />
+    <Compile Include="Activities\CarDetails\GetCarDetailsClient\IGetCarDetailsClient.cs" />
+    <Compile Include="Activities\CarsList\GetCarsClient\RemoteClient.cs" />
     <Compile Include="Http\UpdateCarClient.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\StaticAppSettings.cs" />
     <Compile Include="Utils\DatePickerFragment.cs" />
     <Compile Include="Utils\IntentExtension.cs" />
   </ItemGroup>
@@ -149,6 +159,7 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

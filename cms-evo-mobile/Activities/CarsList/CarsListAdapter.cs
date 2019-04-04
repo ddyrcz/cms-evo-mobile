@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +11,19 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-using static Cms.Data.ListViewDataStore;
+using CmsDroid.Activities.CarsList;
 
-namespace Cms
+namespace CmsDroid.Activities.CarsList
 {
    
 
     class CarsListAdapter : RecyclerView.Adapter
     {
-        private readonly List<ListViewCarModel> _cars;
+        private readonly List<CarsListViewModel> _cars;
 
         public event EventHandler<Guid> CarClicked;
 
-        public CarsListAdapter(List<ListViewCarModel> cars)
+        public CarsListAdapter(List<CarsListViewModel> cars)
             : base()
         {
             _cars = cars;
