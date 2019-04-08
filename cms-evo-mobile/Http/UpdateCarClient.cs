@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -12,7 +12,7 @@ using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
 
-namespace Cms.Http
+namespace CmsDroid.Http
 {
     class UpdateCarClient
     {

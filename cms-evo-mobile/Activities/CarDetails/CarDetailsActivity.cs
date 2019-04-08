@@ -10,11 +10,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Cms.Http;
-using Cms.Utils;
 using CmsDroid.Activities.CarDetails.GetCarDetailsClient;
+using CmsDroid.Http;
+using CmsDroid.Utils;
 using Refractored.Fab;
-using Utils;
 
 namespace CmsDroid.Activities.CarDetails
 {

@@ -10,9 +10,9 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-using Cms.Utils;
 using CmsDroid.Activities.CarDetails;
 using CmsDroid.Activities.CarsList.GetCarsClient;
+using CmsDroid.Utils;
 using Refractored.Fab;
 
 namespace CmsDroid.Activities.CarsList

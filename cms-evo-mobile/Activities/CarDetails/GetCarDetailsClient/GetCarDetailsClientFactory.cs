@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Cms.Settings;
+using CmsDroid;
 
 namespace CmsDroid.Activities.CarDetails.GetCarDetailsClient
 {

@@ -1,9 +1,9 @@
-﻿using Android.App;
+using Android.App;
 using Android.OS;
 using Android.Widget;
 using System;
 
-namespace Utils
+namespace CmsDroid.Utils
 {
     public class DatePickerFragment : DialogFragment,
                                       DatePickerDialog.IOnDateSetListener
