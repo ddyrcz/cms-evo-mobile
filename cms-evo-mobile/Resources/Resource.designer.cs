@@ -2704,9 +2704,6 @@ namespace CmsDroid
 			// aapt resource value: 0x7f080072
 			public const int expanded_menu = 2131230834;
 			
-			// aapt resource value: 0x7f080092
-			public const int fab_button = 2131230866;
-			
 			// aapt resource value: 0x7f080050
 			public const int fill = 2131230800;
 			
@@ -2838,6 +2835,9 @@ namespace CmsDroid
 			
 			// aapt resource value: 0x7f0800b0
 			public const int right_side = 2131230896;
+			
+			// aapt resource value: 0x7f080092
+			public const int save_fab_button = 2131230866;
 			
 			// aapt resource value: 0x7f08000c
 			public const int save_image_matrix = 2131230732;

@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using CmsDroid.Utils;
+using Refractored.Fab;
 
 namespace CmsDroid.Activities
 {
@@ -23,6 +24,7 @@ namespace CmsDroid.Activities
         TextView _registrationNumberAcExpiry;
         TextView _liftUdtExpiry;
         TextView _tachoLegalizationExpiry;
+        FloatingActionButton _createCarButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,6 +33,9 @@ namespace CmsDroid.Activities
             RequestWindowFeature(WindowFeatures.NoTitle);
 
             SetContentView(Resource.Layout.car_details);
+
+            _createCarButton = FindViewById<FloatingActionButton>(Resource.Id.save_fab_button);
+            _createCarButton.Click += OnCreateCarClicked;
 
             _technicalTermResearch = FindViewById<EditText>(Resource.Id.details_car_term_technical_research);            
             _technicalTermResearch.Click += TechnicalTermResearch_Click;
@@ -46,6 +51,11 @@ namespace CmsDroid.Activities
 
             _tachoLegalizationExpiry = FindViewById<EditText>(Resource.Id.details_car_tacho_legalization_expiry);            
             _tachoLegalizationExpiry.Click += TachoLegalizationExpiry_Click;
+        }
+
+        private void OnCreateCarClicked(object sender, EventArgs e)
+        {
+            Toast.MakeText(this, "Create car!", ToastLength.Long).Show();
         }
 
         private void TachoLegalizationExpiry_Click(object sender, EventArgs e)

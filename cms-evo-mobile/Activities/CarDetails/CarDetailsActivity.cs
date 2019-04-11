@@ -30,7 +30,7 @@ namespace CmsDroid.Activities.CarDetails
         TextView _acExpiry;
         TextView _liftUdtExpiry;
         TextView _tachoLegalizationExpiry;
-        FloatingActionButton _fabButton;
+        FloatingActionButton _updateCarButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -47,41 +47,41 @@ namespace CmsDroid.Activities.CarDetails
             var getCarDetailsClient = GetCarDetailsClientFactory.Get();
             var car = getCarDetailsClient.GetDetails(carId);
 
-            _fabButton = FindViewById<FloatingActionButton>(Resource.Id.fab_button);
-            _fabButton.Visibility = ViewStates.Gone;
-            _fabButton.Click += UpdateCar_Click;
+            _updateCarButton = FindViewById<FloatingActionButton>(Resource.Id.save_fab_button);
+            _updateCarButton.Visibility = ViewStates.Gone;
+            _updateCarButton.Click += UpdateCar_Click;
 
             _name = FindViewById<EditText>(Resource.Id.details_car_name);
-            _name.TextChanged += (obj, args) => DataChanged();
+            _name.TextChanged += (obj, args) => OnDataChanged();
             _name.Text = car.Name;
 
             _registrationNumber = FindViewById<EditText>(Resource.Id.details_car_registration_number);
-            _registrationNumber.TextChanged += (obj, args) => DataChanged();
+            _registrationNumber.TextChanged += (obj, args) => OnDataChanged();
             _registrationNumber.Text = car.RegistrationNumber;
 
             _technicalTermResearch = FindViewById<EditText>(Resource.Id.details_car_term_technical_research);
             _technicalTermResearch.Text = car.TermTechnicalResearch.ToString(DateFormat);
-            _technicalTermResearch.TextChanged += (obj, args) => DataChanged();
+            _technicalTermResearch.TextChanged += (obj, args) => OnDataChanged();
             _technicalTermResearch.Click += TechnicalTermResearch_Click;
 
             _ocExpiry = FindViewById<EditText>(Resource.Id.details_car_oc_expiry);
             _ocExpiry.Text = car.OcExpiry.ToString(DateFormat);
-            _ocExpiry.TextChanged += (obj, args) => DataChanged();
+            _ocExpiry.TextChanged += (obj, args) => OnDataChanged();
             _ocExpiry.Click += RegistrationNumberOcExpiry_Click;
 
             _acExpiry = FindViewById<EditText>(Resource.Id.details_car_ac_expiry);
             _acExpiry.Text = car.AcExpiry?.ToString(DateFormat);
-            _acExpiry.TextChanged += (obj, args) => DataChanged();
+            _acExpiry.TextChanged += (obj, args) => OnDataChanged();
             _acExpiry.Click += RegistrationNumberAcExpiry_Click;
 
             _liftUdtExpiry = FindViewById<EditText>(Resource.Id.details_car_lift_udt_expiry);
             _liftUdtExpiry.Text = car.LiftUdtExpiry?.ToString(DateFormat);
-            _liftUdtExpiry.TextChanged += (obj, args) => DataChanged();
+            _liftUdtExpiry.TextChanged += (obj, args) => OnDataChanged();
             _liftUdtExpiry.Click += LiftUdtExpiry_Click;
 
             _tachoLegalizationExpiry = FindViewById<EditText>(Resource.Id.details_car_tacho_legalization_expiry);
             _tachoLegalizationExpiry.Text = car.TachoLegalizationExpiry?.ToString(DateFormat);
-            _tachoLegalizationExpiry.TextChanged += (obj, args) => DataChanged();
+            _tachoLegalizationExpiry.TextChanged += (obj, args) => OnDataChanged();
             _tachoLegalizationExpiry.Click += TachoLegalizationExpiry_Click;
 
             _isDataInitialized = true;            
@@ -155,12 +155,17 @@ namespace CmsDroid.Activities.CarDetails
             datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
         }
 
-        private void DataChanged()
+        private void OnDataChanged()
         {
             if (_isDataInitialized)
             {
-                _fabButton.Visibility = ViewStates.Visible;
+                ShowUpdateButton();
             }
+        }
+
+        private void ShowUpdateButton()
+        {
+            _updateCarButton.Visibility = ViewStates.Visible;
         }
     }
 }
