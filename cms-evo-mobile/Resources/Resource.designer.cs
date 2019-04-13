@@ -4003,6 +4003,9 @@ namespace CmsDroid
 			// aapt resource value: 0x7f090188
 			public const int DetailsHintStyle = 2131296648;
 			
+			// aapt resource value: 0x7f09018a
+			public const int DetailsTextInputLayoutStyle = 2131296650;
+			
 			// aapt resource value: 0x7f090022
 			public const int Platform_AppCompat = 2131296290;
 			
