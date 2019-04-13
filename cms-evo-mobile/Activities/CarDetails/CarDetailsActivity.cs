@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -11,7 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using CmsDroid.Activities.CarDetails.GetCarDetailsClient;
-using CmsDroid.Http;
+using CmsDroid.Activities.CarDetails.UpdateCarClient;
 using CmsDroid.Utils;
 using Refractored.Fab;
 
@@ -49,7 +49,7 @@ namespace CmsDroid.Activities.CarDetails
 
             _updateCarButton = FindViewById<FloatingActionButton>(Resource.Id.save_fab_button);
             _updateCarButton.Visibility = ViewStates.Gone;
-            _updateCarButton.Click += UpdateCar_Click;
+            _updateCarButton.Click += OnUpdateCarClicked;
 
             _name = FindViewById<EditText>(Resource.Id.details_car_name);
             _name.TextChanged += (obj, args) => OnDataChanged();
@@ -87,9 +87,9 @@ namespace CmsDroid.Activities.CarDetails
             _isDataInitialized = true;            
         }
 
-        private void UpdateCar_Click(object sender, EventArgs e)
+        private async void OnUpdateCarClicked(object sender, EventArgs e)
         {
-            var client = new UpdateCarClient();
+            var updateCarClient = UpdateCarClientFactory.Get();
 
             var request = new UpdateCarRequest(Intent.GetExtra<Guid>("SelectedCarId"),
                 _name.Text,
@@ -107,7 +107,9 @@ namespace CmsDroid.Activities.CarDetails
                     DateTime.ParseExact(_tachoLegalizationExpiry.Text, DateFormat, CultureInfo.InvariantCulture) as DateTime?
                 );
 
-            client.Update(request);
+            await updateCarClient.Update(request);
+
+            Finish();
         }
 
         private void TachoLegalizationExpiry_Click(object sender, EventArgs e)
