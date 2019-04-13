@@ -3997,6 +3997,12 @@ namespace CmsDroid
 			// aapt resource value: 0x7f090003
 			public const int CardView_Light = 2131296259;
 			
+			// aapt resource value: 0x7f090189
+			public const int DetailsEditTextStyle = 2131296649;
+			
+			// aapt resource value: 0x7f090188
+			public const int DetailsHintStyle = 2131296648;
+			
 			// aapt resource value: 0x7f090022
 			public const int Platform_AppCompat = 2131296290;
 			

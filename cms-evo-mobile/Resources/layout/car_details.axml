@@ -1,187 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" 
-	xmlns:fab="http://schemas.android.com/apk/res-auto" 
-	android:layout_width="match_parent" 
-	android:layout_height="match_parent">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-	<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
-		xmlns:card_view="http://schemas.android.com/apk/res-auto" 
-		android:layout_width="match_parent" 
-		android:layout_height="match_parent" 
-		android:fillViewport="true">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
-			android:orientation="vertical" 
-			android:layout_width="match_parent" 
-			android:layout_height="match_parent" 
-			android:minWidth="25px" 
-			android:padding="10px" 
-			android:minHeight="25px">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minWidth="25px"
+            android:padding="10px"
+            android:minHeight="25px">
 
-			<android.support.v7.widget.CardView android:layout_width="match_parent" 
-				android:layout_height="wrap_content" 
-				card_view:cardElevation="4dp" 
-				card_view:cardUseCompatPadding="true" 
-				card_view:cardCornerRadius="5dp">
-				<LinearLayout android:layout_width="match_parent" 
-					android:layout_height="wrap_content" 
-					android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="5dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-					<LinearLayout android:orientation="vertical" 
-						android:layout_width="match_parent" 
-						android:layout_height="wrap_content" 
-						android:layout_margin="15px">
-						<TextView android:text="Nazwa:" 
-							android:gravity="center" 
-							android:textSize="15sp" 
-							android:layout_marginLeft="10px" 
-							android:layout_width="wrap_content" 
-							android:layout_height="wrap_content" />
-						<EditText android:layout_width="match_parent" 
-							android:layout_height="wrap_content" 
-							android:textSize="17sp" 
-							android:id="@+id/details_car_name" />
-					</LinearLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:layout_marginTop="15dp"
+                        app:hintTextAppearance="@style/DetailsHintStyle"
+                        android:layout_marginBottom="15dp">
+                        <android.support.design.widget.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:hint="Nazwa"
+                            style="@style/DetailsEditTextStyle"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/details_car_name" />
+                    </android.support.design.widget.TextInputLayout>
 
-					<LinearLayout android:orientation="vertical" 
-						android:layout_width="match_parent" 
-						android:layout_height="wrap_content" 
-						android:layout_margin="15px">
-						<TextView android:text="Nr. Rejestracyjny:" 
-							android:textSize="15sp" 
-							android:gravity="center" 
-							android:layout_marginLeft="10px" 
-							android:layout_width="wrap_content" 
-							android:layout_height="wrap_content" />
-						<EditText android:textAppearance="?android:attr/textAppearanceLarge" 
-							android:layout_width="match_parent" 
-							android:textSize="17sp" 
-							android:layout_height="wrap_content" 
-							android:id="@+id/details_car_registration_number" />
-					</LinearLayout>
-				</LinearLayout>
-			</android.support.v7.widget.CardView>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:layout_marginTop="15dp"
+                        app:hintTextAppearance="@style/DetailsHintStyle"
+                        android:layout_marginBottom="15dp">
+                        <android.support.design.widget.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:hint="Nr. Rejestracyjny"
+                            style="@style/DetailsEditTextStyle"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/details_car_registration_number" />
+                    </android.support.design.widget.TextInputLayout>
 
-			<android.support.v7.widget.CardView android:layout_width="match_parent" 
-				android:layout_height="wrap_content" 
-				card_view:cardElevation="4dp" 
-				card_view:cardUseCompatPadding="true" 
-				card_view:cardCornerRadius="5dp">
-				<LinearLayout android:layout_width="match_parent" 
-					android:layout_height="wrap_content" 
-					android:orientation="vertical">
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-					<LinearLayout android:orientation="vertical" 
-						android:layout_width="match_parent" 
-						android:layout_height="wrap_content" 
-						android:layout_margin="15px">
-						<TextView android:text="Przegląd:" 
-							android:textSize="15sp" 
-							android:gravity="center" 
-							android:layout_marginLeft="10px" 
-							android:layout_width="wrap_content" 
-							android:layout_height="wrap_content" />
-						<EditText android:textAppearance="?android:attr/textAppearanceLarge" 
-							android:layout_width="match_parent" 
-							android:layout_height="wrap_content" 
-							android:editable="true" 
-							android:focusable="false" 
-							android:textSize="17sp" 
-							android:id="@+id/details_car_term_technical_research" />
-					</LinearLayout>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="5dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-					<LinearLayout android:orientation="vertical" 
-						android:layout_width="match_parent" 
-						android:layout_height="wrap_content" 
-						android:layout_margin="15px">
-						<TextView android:text="OC:" 
-							android:textSize="15sp" 
-							android:gravity="center" 
-							android:layout_marginLeft="10px" 
-							android:layout_width="wrap_content" 
-							android:layout_height="wrap_content" />
-						<EditText android:textAppearance="?android:attr/textAppearanceLarge" 
-							android:layout_width="match_parent" 
-							android:layout_height="wrap_content" 
-							android:editable="true" 
-							android:focusable="false" 
-							android:textSize="17sp" 
-							android:id="@+id/details_car_oc_expiry" />
-					</LinearLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:layout_marginTop="15dp"
+                        app:hintTextAppearance="@style/DetailsHintStyle"
+                        android:layout_marginBottom="15dp">
+                        <android.support.design.widget.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:hint="Przegląd"
+                            android:focusable="false"
+                            style="@style/DetailsEditTextStyle"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/details_car_term_technical_research" />
+                    </android.support.design.widget.TextInputLayout>
 
-					<LinearLayout android:orientation="vertical" 
-						android:layout_width="match_parent" 
-						android:layout_height="wrap_content" 
-						android:layout_margin="15px">
-						<TextView android:text="AC:" 
-							android:textSize="15sp" 
-							android:gravity="center" 
-							android:layout_marginLeft="10px" 
-							android:layout_width="wrap_content" 
-							android:layout_height="wrap_content" />
-						<EditText android:textAppearance="?android:attr/textAppearanceLarge" 
-							android:layout_width="match_parent" 
-							android:layout_height="wrap_content" 
-							android:editable="true" 
-							android:textSize="17sp" 
-							android:focusable="false" 
-							android:id="@+id/details_car_ac_expiry" />
-					</LinearLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:layout_marginTop="15dp"
+                        app:hintTextAppearance="@style/DetailsHintStyle"
+                        android:layout_marginBottom="15dp">
+                        <android.support.design.widget.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:hint="OC"
+                            android:focusable="false"
+                            style="@style/DetailsEditTextStyle"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/details_car_oc_expiry" />
+                    </android.support.design.widget.TextInputLayout>
 
-					<LinearLayout android:orientation="vertical" 
-						android:layout_width="match_parent" 
-						android:layout_height="wrap_content" 
-						android:layout_margin="15px">
-						<TextView android:text="UDT:" 
-							android:textSize="15sp" 
-							android:gravity="center" 
-							android:layout_marginLeft="10px" 
-							android:layout_width="wrap_content" 
-							android:layout_height="wrap_content" />
-						<EditText android:textAppearance="?android:attr/textAppearanceLarge" 
-							android:layout_width="match_parent" 
-							android:layout_height="wrap_content" 
-							android:editable="true" 
-							android:textSize="17sp" 
-							android:focusable="false" 
-							android:id="@+id/details_car_lift_udt_expiry" />
-					</LinearLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:layout_marginTop="15dp"
+                        app:hintTextAppearance="@style/DetailsHintStyle"
+                        android:layout_marginBottom="15dp">
+                        <android.support.design.widget.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:hint="AC"
+                            style="@style/DetailsEditTextStyle"
+                            android:focusable="false"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/details_car_ac_expiry" />
+                    </android.support.design.widget.TextInputLayout>
 
-					<LinearLayout android:orientation="vertical" 
-						android:layout_width="match_parent" 
-						android:layout_height="wrap_content" 
-						android:layout_margin="15px">
-						<TextView android:text="Tacho:" 
-							android:textSize="15sp" 
-							android:gravity="center" 
-							android:layout_marginLeft="10px" 
-							android:layout_width="wrap_content" 
-							android:layout_height="wrap_content" />
-						<EditText android:textAppearance="?android:attr/textAppearanceLarge" 
-							android:layout_width="match_parent" 
-							android:layout_height="wrap_content" 
-							android:editable="true" 
-							android:textSize="17sp" 
-							android:focusable="false" 
-							android:id="@+id/details_car_tacho_legalization_expiry" />
-					</LinearLayout>
-				</LinearLayout>
-			</android.support.v7.widget.CardView>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:layout_marginTop="15dp"
+                        app:hintTextAppearance="@style/DetailsHintStyle"
+                        android:layout_marginBottom="15dp">
+                        <android.support.design.widget.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:hint="UDT"
+                            android:focusable="false"
+                            style="@style/DetailsEditTextStyle"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/details_car_lift_udt_expiry" />
+                    </android.support.design.widget.TextInputLayout>
 
-		</LinearLayout>
-	</ScrollView>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:layout_marginTop="15dp"
+                        app:hintTextAppearance="@style/DetailsHintStyle"
+                        android:layout_marginBottom="15dp">
+                        <android.support.design.widget.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:hint="Tacho"
+                            android:focusable="false"
+                            style="@style/DetailsEditTextStyle"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/details_car_tacho_legalization_expiry"/>
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
 
 
-	<Refractored.Fab.FloatingActionButton android:id="@+id/save_fab_button" 
-		android:layout_width="wrap_content" 
-		android:layout_height="wrap_content" 
-		android:layout_gravity="bottom|right" 
-		android:layout_margin="16dp" 
-		fab:fab_size="normal" 
-		android:src="@drawable/done" 
-		fab:fab_colorNormal="#3f51b5" 
-		fab:fab_colorPressed="#002984" 
-		fab:fab_colorRipple="#757de8" />
+    <Refractored.Fab.FloatingActionButton
+        android:id="@+id/save_fab_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:fab_size="normal"
+        android:src="@drawable/done"
+        app:fab_colorNormal="#3f51b5"
+        app:fab_colorPressed="#002984"
+        app:fab_colorRipple="#757de8" />
 
 </FrameLayout>
