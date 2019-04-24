@@ -23,7 +23,7 @@ namespace CmsDroid.Activities.CarDetails.UpdateCarClient
                 var json = JsonConvert.SerializeObject(request);
                 var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
-                await http.PutAsync("http://10.0.2.2:5000/api/cars", stringContent);
+                await http.PutAsync($"{StaticAppSettings.ServiceAddress}/api/cars", stringContent);
             }
         }
     }

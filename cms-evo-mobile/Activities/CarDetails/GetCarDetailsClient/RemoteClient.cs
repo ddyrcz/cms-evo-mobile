@@ -20,7 +20,7 @@ namespace CmsDroid.Activities.CarDetails.GetCarDetailsClient
         {
             using (var http = new HttpClient())
             {
-                var response = http.GetAsync($"http://10.0.2.2:5000/api/cars/{carId}").Result;
+                var response = http.GetAsync($"{StaticAppSettings.ServiceAddress}/api/cars/{carId}").Result;
 
                 var json = response.Content.ReadAsStringAsync().Result;
 
