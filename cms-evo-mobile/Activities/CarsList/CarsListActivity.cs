@@ -20,7 +20,7 @@ namespace CmsDroid.Activities.CarsList
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class CarsListActivity : Activity
     {
-        RecyclerView _recyclerView;        
+        RecyclerView _recyclerView;
         CarsListAdapter _carsAdapter;
         List<CarsListViewModel> _cars;
 
@@ -30,10 +30,7 @@ namespace CmsDroid.Activities.CarsList
 
             SetContentView(Resource.Layout.cars_list);
 
-            var getCarsClient = GetCarsClientFactory.Get();
-            var cars = getCarsClient.GetCars();
-
-            _cars = cars;
+            GetCars();
 
             _carsAdapter = new CarsListAdapter(_cars);
             _carsAdapter.CarClicked += CarClicked;
@@ -50,9 +47,41 @@ namespace CmsDroid.Activities.CarsList
 
         }
 
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        {
+            var completedRequest = (Request)requestCode;
+
+            if (resultCode == Result.Ok)
+            {
+                HandleRequestCompletion(completedRequest);
+            }
+        }
+
+        private void HandleRequestCompletion(Request completedRequest)
+        {
+            switch (completedRequest)
+            {
+                case Request.UpdateCarRequest:
+                    GetCars();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void GetCars()
+        {
+            var cars = GetCarsClientFactory.Client.GetCars();
+
+            _cars = cars;
+
+            _carsAdapter?.UpdateItems(_cars);
+            _carsAdapter?.NotifyDataSetChanged();
+        }
+
         private void AddCarClicked(object sender, EventArgs e)
         {
-            var intent = new Intent(this, typeof(CreateCarActivity));           
+            var intent = new Intent(this, typeof(CreateCarActivity));
             StartActivity(intent);
         }
 
@@ -60,7 +89,12 @@ namespace CmsDroid.Activities.CarsList
         {
             var intent = new Intent(this, typeof(CarDetailsActivity));
             intent.PutExtra("SelectedCarId", carId);
-            StartActivity(intent);
+            StartActivityForResult(intent, (int)Request.UpdateCarRequest);
         }
+    }
+
+    enum Request
+    {
+        UpdateCarRequest
     }
 }

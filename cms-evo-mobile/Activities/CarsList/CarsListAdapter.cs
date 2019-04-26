@@ -15,11 +15,9 @@ using CmsDroid.Activities.CarsList;
 
 namespace CmsDroid.Activities.CarsList
 {
-   
-
     class CarsListAdapter : RecyclerView.Adapter
     {
-        private readonly List<CarsListViewModel> _cars;
+        private List<CarsListViewModel> _cars;
 
         public event EventHandler<Guid> CarClicked;
 
@@ -30,6 +28,11 @@ namespace CmsDroid.Activities.CarsList
         }
 
         public override int ItemCount => _cars.Count;
+
+        public void UpdateItems(List<CarsListViewModel> cars)
+        {
+            _cars = cars;
+        }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
@@ -42,11 +45,26 @@ namespace CmsDroid.Activities.CarsList
 
             if (car.ApproachingExpiration)
             {
-                carViewHolder.CardView.SetCardBackgroundColor(Color.ParseColor("#f98989"));
-                carViewHolder.Name.SetTextColor(Color.White);
-                carViewHolder.RegistrationNumber.SetTextColor(Color.White);
+                SetWarningColorsToCarItem(carViewHolder);
             }
+            else
+            {
+                SetDefaultColorsToCarItem(carViewHolder);
+            }
+        }
 
+        private static void SetDefaultColorsToCarItem(CarViewHolder carViewHolder)
+        {
+            carViewHolder.CardView.SetCardBackgroundColor(Color.White);
+            carViewHolder.Name.SetTextColor(Color.ParseColor("#777777"));
+            carViewHolder.RegistrationNumber.SetTextColor(Color.ParseColor("#777777"));
+        }
+
+        private static void SetWarningColorsToCarItem(CarViewHolder carViewHolder)
+        {
+            carViewHolder.CardView.SetCardBackgroundColor(Color.ParseColor("#f98989"));
+            carViewHolder.Name.SetTextColor(Color.White);
+            carViewHolder.RegistrationNumber.SetTextColor(Color.White);
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

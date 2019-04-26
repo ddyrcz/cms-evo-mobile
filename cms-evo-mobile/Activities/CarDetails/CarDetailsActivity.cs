@@ -109,6 +109,7 @@ namespace CmsDroid.Activities.CarDetails
 
             await updateCarClient.Update(request);
 
+            SetResult(Result.Ok);
             Finish();
         }
 

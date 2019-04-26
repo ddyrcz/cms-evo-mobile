@@ -15,17 +15,19 @@ namespace CmsDroid.Activities.CarsList.GetCarsClient
 {
     static class GetCarsClientFactory
     {
-        public static IGetCarsClient Get()
+        public static IGetCarsClient Client
         {
-            if (StaticAppSettings.UseMockData)
+            get
             {
-                return new MemoryClient();
-            }
-            else
-            {
-                return new RemoteClient();
+                if (StaticAppSettings.UseMockData)
+                {
+                    return new MemoryClient();
+                }
+                else
+                {
+                    return new RemoteClient();
+                }
             }
         }
-
     }
 }
