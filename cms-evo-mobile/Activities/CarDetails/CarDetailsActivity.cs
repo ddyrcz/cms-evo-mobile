@@ -60,12 +60,12 @@ namespace CmsDroid.Activities.CarDetails
             _registrationNumber.Text = car.RegistrationNumber;
 
             _technicalTermResearch = FindViewById<EditText>(Resource.Id.details_car_term_technical_research);
-            _technicalTermResearch.Text = car.TermTechnicalResearch.ToString(DateFormat);
+            _technicalTermResearch.Text = car.TermTechnicalResearch?.ToString(DateFormat);
             _technicalTermResearch.TextChanged += (obj, args) => OnDataChanged();
             _technicalTermResearch.Click += TechnicalTermResearch_Click;
 
             _ocExpiry = FindViewById<EditText>(Resource.Id.details_car_oc_expiry);
-            _ocExpiry.Text = car.OcExpiry.ToString(DateFormat);
+            _ocExpiry.Text = car.OcExpiry?.ToString(DateFormat);
             _ocExpiry.TextChanged += (obj, args) => OnDataChanged();
             _ocExpiry.Click += RegistrationNumberOcExpiry_Click;
 
@@ -94,18 +94,11 @@ namespace CmsDroid.Activities.CarDetails
             var request = new UpdateCarRequest(Intent.GetExtra<Guid>("SelectedCarId"),
                 _name.Text,
                 _registrationNumber.Text,
-                DateTime.ParseExact(_technicalTermResearch.Text, DateFormat, CultureInfo.InvariantCulture),
-                DateTime.ParseExact(_ocExpiry.Text, DateFormat, CultureInfo.InvariantCulture),
-                string.IsNullOrEmpty(_acExpiry.Text) ? 
-                    null :
-                    DateTime.ParseExact(_acExpiry.Text, DateFormat, CultureInfo.InvariantCulture) as DateTime?,
-                string.IsNullOrEmpty(_liftUdtExpiry.Text) ?
-                    null :
-                    DateTime.ParseExact(_liftUdtExpiry.Text, DateFormat, CultureInfo.InvariantCulture) as DateTime?,
-                string.IsNullOrEmpty(_tachoLegalizationExpiry.Text) ?
-                    null :
-                    DateTime.ParseExact(_tachoLegalizationExpiry.Text, DateFormat, CultureInfo.InvariantCulture) as DateTime?
-                );
+                DateParser.ParseDate(_technicalTermResearch.Text, DateFormat),
+                DateParser.ParseDate(_ocExpiry.Text, DateFormat),
+                DateParser.ParseDate(_acExpiry.Text, DateFormat),
+                DateParser.ParseDate(_liftUdtExpiry.Text, DateFormat),
+                DateParser.ParseDate(_tachoLegalizationExpiry.Text, DateFormat));
 
             await updateCarClient.Update(request);
 

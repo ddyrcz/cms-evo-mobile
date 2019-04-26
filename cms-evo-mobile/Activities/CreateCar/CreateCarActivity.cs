@@ -60,19 +60,19 @@ namespace CmsDroid.Activities
             _tachoLegalizationExpiry.Click += TachoLegalizationExpiry_Click;
         }
 
-        private void OnCreateCarClicked(object sender, EventArgs e)
+        private async void OnCreateCarClicked(object sender, EventArgs e)
         {
             var createCarRequest = new CreateCarRequest(
                 Guid.NewGuid(),
                _name.Text,
                _registrationNumber.Text,
-               DateParser.ParseDateIfExists(_technicalTermResearch.Text, DateFormat),
-               DateParser.ParseDateIfExists(_registrationNumberOcExpiry.Text, DateFormat),
-               DateParser.ParseDateIfExists(_registrationNumberAcExpiry.Text, DateFormat),
-               DateParser.ParseDateIfExists(_liftUdtExpiry.Text, DateFormat),
-               DateParser.ParseDateIfExists(_tachoLegalizationExpiry.Text, DateFormat));
+               DateParser.ParseDate(_technicalTermResearch.Text, DateFormat),
+               DateParser.ParseDate(_registrationNumberOcExpiry.Text, DateFormat),
+               DateParser.ParseDate(_registrationNumberAcExpiry.Text, DateFormat),
+               DateParser.ParseDate(_liftUdtExpiry.Text, DateFormat),
+               DateParser.ParseDate(_tachoLegalizationExpiry.Text, DateFormat));
 
-            CreateCarClientFactory.Client.Create(createCarRequest);
+            await CreateCarClientFactory.Client.Create(createCarRequest);
 
             SetResult(Result.Ok);
             Finish();

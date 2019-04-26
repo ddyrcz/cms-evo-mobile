@@ -7,8 +7,8 @@ namespace CmsDroid.Activities.CarDetails.UpdateCarClient
         public UpdateCarRequest(Guid carId,
            string name,
            string registrationNumber,
-           DateTime termTechnicalResearch,
-           DateTime ocExpiry,
+           DateTime? termTechnicalResearch,
+           DateTime? ocExpiry,
            DateTime? acExpiry,
            DateTime? liftUdtExpiry,
            DateTime? tachoLegalizationExpiry)
@@ -26,8 +26,8 @@ namespace CmsDroid.Activities.CarDetails.UpdateCarClient
         public Guid CarId { get; }
         public string Name { get; }
         public string RegistrationNumber { get; }
-        public DateTime TermTechnicalResearch { get; }
-        public DateTime OcExpiry { get; }
+        public DateTime? TermTechnicalResearch { get; }
+        public DateTime? OcExpiry { get; }
         public DateTime? AcExpiry { get; }
         public DateTime? LiftUdtExpiry { get; }
         public DateTime? TachoLegalizationExpiry { get; }

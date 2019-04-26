@@ -15,13 +15,7 @@ namespace CmsDroid.Utils
 {
     static class DateParser
     {
-        public static DateTime ParseDate(string date, string dateFormat)
-        {
-            return 
-                DateTime.ParseExact(date, dateFormat, CultureInfo.InvariantCulture);
-        }
-
-        public static DateTime? ParseDateIfExists(string date, string dateFormat)
+        public static DateTime? ParseDate(string date, string dateFormat)
         {
             return
                  string.IsNullOrEmpty(date) ?
