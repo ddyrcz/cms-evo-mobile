@@ -12,8 +12,5 @@ using Android.Widget;
 
 namespace CmsDroid.Activities.CarDetails.GetCarDetailsClient
 {
-    interface IGetCarDetailsClient
-    {
-        CarDetailsViewModel GetDetails(Guid carId);
-    }
+   
 }
