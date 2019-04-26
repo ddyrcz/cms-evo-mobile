@@ -40,8 +40,8 @@ namespace CmsDroid.Activities.CreateCar.CreateCarClient
         public CreateCarRequest(Guid id,
            string name,
            string registrationNumber,
-           DateTime termTechnicalResearch,
-           DateTime ocExpiry,
+           DateTime? termTechnicalResearch,
+           DateTime? ocExpiry,
            DateTime? acExpiry,
            DateTime? liftUdtExpiry,
            DateTime? tachoLegalizationExpiry)
@@ -59,8 +59,8 @@ namespace CmsDroid.Activities.CreateCar.CreateCarClient
         public Guid Id { get; }
         public string Name { get; }
         public string RegistrationNumber { get; }
-        public DateTime TermTechnicalResearch { get; }
-        public DateTime OcExpiry { get; }
+        public DateTime? TermTechnicalResearch { get; }
+        public DateTime? OcExpiry { get; }
         public DateTime? AcExpiry { get; }
         public DateTime? LiftUdtExpiry { get; }
         public DateTime? TachoLegalizationExpiry { get; }

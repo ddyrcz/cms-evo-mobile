@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using CmsDroid.Activities.CreateCar.CreateCarClient;
 using CmsDroid.Utils;
 using Refractored.Fab;
 
@@ -19,6 +20,8 @@ namespace CmsDroid.Activities
     {
         const string DateFormat = "dd.MM.yyyy";
 
+        EditText _name;
+        EditText _registrationNumber;
         TextView _technicalTermResearch;
         TextView _registrationNumberOcExpiry;
         TextView _registrationNumberAcExpiry;
@@ -36,6 +39,10 @@ namespace CmsDroid.Activities
 
             _createCarButton = FindViewById<FloatingActionButton>(Resource.Id.save_fab_button);
             _createCarButton.Click += OnCreateCarClicked;
+
+            _name = FindViewById<EditText>(Resource.Id.details_car_name);
+
+            _registrationNumber = FindViewById<EditText>(Resource.Id.details_car_registration_number);
 
             _technicalTermResearch = FindViewById<EditText>(Resource.Id.details_car_term_technical_research);            
             _technicalTermResearch.Click += TechnicalTermResearch_Click;
@@ -55,7 +62,20 @@ namespace CmsDroid.Activities
 
         private void OnCreateCarClicked(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Create car!", ToastLength.Long).Show();
+            var createCarRequest = new CreateCarRequest(
+                Guid.NewGuid(),
+               _name.Text,
+               _registrationNumber.Text,
+               DateParser.ParseDateIfExists(_technicalTermResearch.Text, DateFormat),
+               DateParser.ParseDateIfExists(_registrationNumberOcExpiry.Text, DateFormat),
+               DateParser.ParseDateIfExists(_registrationNumberAcExpiry.Text, DateFormat),
+               DateParser.ParseDateIfExists(_liftUdtExpiry.Text, DateFormat),
+               DateParser.ParseDateIfExists(_tachoLegalizationExpiry.Text, DateFormat));
+
+            CreateCarClientFactory.Client.Create(createCarRequest);
+
+            SetResult(Result.Ok);
+            Finish();
         }
 
         private void TachoLegalizationExpiry_Click(object sender, EventArgs e)

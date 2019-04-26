@@ -62,7 +62,10 @@ namespace CmsDroid.Activities.CarsList
             switch (completedRequest)
             {
                 case Request.UpdateCarRequest:
-                    GetCars();
+                    RefreshCarsList();
+                    break;
+                case Request.CreateCarRequest:
+                    RefreshCarsList();
                     break;
                 default:
                     break;
@@ -74,6 +77,11 @@ namespace CmsDroid.Activities.CarsList
             var cars = GetCarsClientFactory.Client.GetCars();
 
             _cars = cars;
+        }
+
+        private void RefreshCarsList()
+        {
+            GetCars();
 
             _carsAdapter?.UpdateItems(_cars);
             _carsAdapter?.NotifyDataSetChanged();
@@ -82,7 +90,7 @@ namespace CmsDroid.Activities.CarsList
         private void AddCarClicked(object sender, EventArgs e)
         {
             var intent = new Intent(this, typeof(CreateCarActivity));
-            StartActivity(intent);
+            StartActivityForResult(intent, (int)Request.CreateCarRequest);
         }
 
         private void CarClicked(object sender, Guid carId)
@@ -95,6 +103,7 @@ namespace CmsDroid.Activities.CarsList
 
     enum Request
     {
-        UpdateCarRequest
+        UpdateCarRequest,
+        CreateCarRequest
     }
 }
