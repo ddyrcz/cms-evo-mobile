@@ -80,6 +80,9 @@
     <Compile Include="Activities\CarDetails\GetCarDetailsClient\RemoteClient.cs" />
     <Compile Include="Activities\CarDetails\GetCarDetailsClient\GetCarDetailsClientFactory.cs" />
     <Compile Include="Activities\CarsList\GetCarsClient\RemoteClient.cs" />
+    <Compile Include="Activities\CreateCar\CreateCarClient\CreateCarClientFactory.cs" />
+    <Compile Include="Activities\CreateCar\CreateCarClient\MemoryClient.cs" />
+    <Compile Include="Activities\CreateCar\CreateCarClient\RemoteClient.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticAppSettings.cs" />
