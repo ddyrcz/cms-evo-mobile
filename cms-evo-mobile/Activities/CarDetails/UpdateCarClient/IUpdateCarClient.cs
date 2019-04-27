@@ -11,8 +11,5 @@ using Android.Widget;
 
 namespace CmsDroid.Activities.CarDetails.UpdateCarClient
 {
-    interface IUpdateCarClient
-    {
-        Task Update(UpdateCarRequest request);
-    }
+   
 }

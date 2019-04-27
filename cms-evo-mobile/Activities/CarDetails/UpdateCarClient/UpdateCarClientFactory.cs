@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -25,5 +25,41 @@ namespace CmsDroid.Activities.CarDetails.UpdateCarClient
                 return new RemoteClient();
             }
         }
+    }
+
+    interface IUpdateCarClient
+    {
+        Task Update(UpdateCarRequest request);
+    }
+
+    class UpdateCarRequest
+    {
+        public UpdateCarRequest(Guid carId,
+           string name,
+           string registrationNumber,
+           DateTime? termTechnicalResearch,
+           DateTime? ocExpiry,
+           DateTime? acExpiry,
+           DateTime? liftUdtExpiry,
+           DateTime? tachoLegalizationExpiry)
+        {
+            CarId = carId;
+            Name = name;
+            RegistrationNumber = registrationNumber;
+            TermTechnicalResearch = termTechnicalResearch;
+            OcExpiry = ocExpiry;
+            AcExpiry = acExpiry;
+            LiftUdtExpiry = liftUdtExpiry;
+            TachoLegalizationExpiry = tachoLegalizationExpiry;
+        }
+
+        public Guid CarId { get; }
+        public string Name { get; }
+        public string RegistrationNumber { get; }
+        public DateTime? TermTechnicalResearch { get; }
+        public DateTime? OcExpiry { get; }
+        public DateTime? AcExpiry { get; }
+        public DateTime? LiftUdtExpiry { get; }
+        public DateTime? TachoLegalizationExpiry { get; }
     }
 }

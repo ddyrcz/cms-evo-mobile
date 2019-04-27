@@ -63,11 +63,9 @@
     <Compile Include="Activities\CarDetails\CarDetailsActivity.cs" />
     <Compile Include="Activities\CarDetails\CarDetailsViewModel.cs" />
     <Compile Include="Activities\CarDetails\GetCarDetailsClient\MemoryClient.cs" />
-    <Compile Include="Activities\CarDetails\UpdateCarClient\IUpdateCarClient.cs" />
     <Compile Include="Activities\CarDetails\UpdateCarClient\MemoryClient.cs" />
     <Compile Include="Activities\CarDetails\UpdateCarClient\RemoteClient.cs" />
     <Compile Include="Activities\CarDetails\UpdateCarClient\UpdateCarClientFactory.cs" />
-    <Compile Include="Activities\CarDetails\UpdateCarClient\UpdateCarRequest.cs" />
     <Compile Include="Activities\CarsList\CarsListActivity.cs" />
     <Compile Include="Activities\CarsList\CarsListAdapter.cs" />
     <Compile Include="Activities\CarsList\DeleteCarClient\DeleteCarClientFactory.cs" />
