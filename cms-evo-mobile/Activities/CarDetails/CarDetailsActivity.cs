@@ -62,27 +62,32 @@ namespace CmsDroid.Activities.CarDetails
             _technicalTermResearch = FindViewById<EditText>(Resource.Id.details_car_term_technical_research);
             _technicalTermResearch.Text = car.TermTechnicalResearch?.ToString(DateFormat);
             _technicalTermResearch.TextChanged += (obj, args) => OnDataChanged();
-            _technicalTermResearch.Click += TechnicalTermResearch_Click;
+            _technicalTermResearch.Click += 
+                (sender, args) => OnSelectDateClicked(_technicalTermResearch);
 
             _ocExpiry = FindViewById<EditText>(Resource.Id.details_car_oc_expiry);
             _ocExpiry.Text = car.OcExpiry?.ToString(DateFormat);
             _ocExpiry.TextChanged += (obj, args) => OnDataChanged();
-            _ocExpiry.Click += RegistrationNumberOcExpiry_Click;
+            _ocExpiry.Click +=
+                 (sender, args) => OnSelectDateClicked(_ocExpiry); ;
 
             _acExpiry = FindViewById<EditText>(Resource.Id.details_car_ac_expiry);
             _acExpiry.Text = car.AcExpiry?.ToString(DateFormat);
             _acExpiry.TextChanged += (obj, args) => OnDataChanged();
-            _acExpiry.Click += RegistrationNumberAcExpiry_Click;
+            _acExpiry.Click +=
+                 (sender, args) => OnSelectDateClicked(_acExpiry); ;
 
             _liftUdtExpiry = FindViewById<EditText>(Resource.Id.details_car_lift_udt_expiry);
             _liftUdtExpiry.Text = car.LiftUdtExpiry?.ToString(DateFormat);
             _liftUdtExpiry.TextChanged += (obj, args) => OnDataChanged();
-            _liftUdtExpiry.Click += LiftUdtExpiry_Click;
+            _liftUdtExpiry.Click +=
+                 (sender, args) => OnSelectDateClicked(_liftUdtExpiry); ;
 
             _tachoLegalizationExpiry = FindViewById<EditText>(Resource.Id.details_car_tacho_legalization_expiry);
             _tachoLegalizationExpiry.Text = car.TachoLegalizationExpiry?.ToString(DateFormat);
             _tachoLegalizationExpiry.TextChanged += (obj, args) => OnDataChanged();
-            _tachoLegalizationExpiry.Click += TachoLegalizationExpiry_Click;
+            _tachoLegalizationExpiry.Click +=
+                 (sender, args) => OnSelectDateClicked(_tachoLegalizationExpiry); ;
 
             _isDataInitialized = true;            
         }
@@ -106,49 +111,17 @@ namespace CmsDroid.Activities.CarDetails
             Finish();
         }
 
-        private void TachoLegalizationExpiry_Click(object sender, EventArgs e)
+        private void OnSelectDateClicked(TextView clickedDateTextView)
         {
-            var datePickerFragment = DatePickerFragment.NewInstance(delegate (DateTime time)
-            {
-                _tachoLegalizationExpiry.Text = time.ToString(DateFormat);
-            });
-            datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
-        }
+            var datePicker = new DatePickerFragment(
+                initialDate: DateParser.ParseDate(clickedDateTextView.Text, DateFormat));
 
-        private void LiftUdtExpiry_Click(object sender, EventArgs e)
-        {
-            var datePickerFragment = DatePickerFragment.NewInstance(delegate (DateTime time)
-            {
-                _liftUdtExpiry.Text = time.ToString(DateFormat);
-            });
-            datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
-        }
+            datePicker.Show(FragmentManager, DatePickerFragment.TAG);
 
-        private void TechnicalTermResearch_Click(object sender, EventArgs e)
-        {
-            var datePickerFragment = DatePickerFragment.NewInstance(delegate (DateTime time)
+            datePicker.OnDateSelected += (sender, selectedDate) =>
             {
-                _technicalTermResearch.Text = time.ToString(DateFormat);
-            });
-            datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
-        }
-
-        private void RegistrationNumberAcExpiry_Click(object sender, EventArgs e)
-        {
-            var datePickerFragment = DatePickerFragment.NewInstance(delegate (DateTime time)
-            {
-                _acExpiry.Text = time.ToString(DateFormat);
-            });
-            datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
-        }
-
-        private void RegistrationNumberOcExpiry_Click(object sender, EventArgs e)
-        {
-            var datePickerFragment = DatePickerFragment.NewInstance(delegate (DateTime time)
-            {
-                _ocExpiry.Text = time.ToString(DateFormat);
-            });
-            datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
+                clickedDateTextView.Text = selectedDate.ToString(DateFormat);
+            };
         }
 
         private void OnDataChanged()

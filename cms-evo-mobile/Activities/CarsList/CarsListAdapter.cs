@@ -20,6 +20,7 @@ namespace CmsDroid.Activities.CarsList
         private List<CarsListViewModel> _cars;
 
         public event EventHandler<Guid> CarClicked;
+
         public event EventHandler<Guid> CarLongClicked;
 
         public CarsListAdapter(List<CarsListViewModel> cars)
