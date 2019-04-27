@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using CmsDroid.Activities.CarDetails;
+using CmsDroid.Activities.CarsList.DeleteCarClient;
 using CmsDroid.Activities.CarsList.GetCarsClient;
 using CmsDroid.Utils;
 using Refractored.Fab;
@@ -102,9 +103,24 @@ namespace CmsDroid.Activities.CarsList
             StartActivityForResult(intent, (int)Request.UpdateCarRequest);
         }
 
-        private void CarLongClicked(object sender, Guid e)
+        private void CarLongClicked(object sender, Guid pressedCarId)
         {
-            Toast.MakeText(this, "Long clicked", ToastLength.Long).Show();
+            var builder = new AlertDialog.Builder(this);
+
+            builder.SetMessage("Czy napewno usunąć pojazd?");
+            builder.SetPositiveButton("Tak", (s, args) =>
+            {
+                DeleteCar(pressedCarId);
+            });
+            builder.SetNegativeButton("Nie", (s, args) => { });
+
+            builder.Create().Show();
+        }
+
+        private async void DeleteCar(Guid carId)
+        {
+            await DeleteCarClientFactory.Client.Delete(carId);
+            RefreshCarsList();
         }
     }
 
