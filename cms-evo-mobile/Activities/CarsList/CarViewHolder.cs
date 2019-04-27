@@ -19,14 +19,16 @@ namespace CmsDroid.Activities.CarsList
         public TextView RegistrationNumber { get; private set; }
         public CardView CardView { get; private set; }
 
-        public CarViewHolder(View itemView, Action<int> clickListener) : base(itemView)
+        public CarViewHolder(View itemView,
+            Action<int> clickListener,
+            Action<int> longClickListener) : base(itemView)
         {   
             Name = itemView.FindViewById<TextView>(Resource.Id.carListItemName);
             RegistrationNumber = itemView.FindViewById<TextView>(Resource.Id.carListItemRegistrationNumber);
             CardView = itemView.FindViewById<CardView>(Resource.Id.car_list_item_card_view);
 
-
-            itemView.Click += (sender, e) => clickListener(base.LayoutPosition);
+            itemView.Click += (sender, e) => clickListener(LayoutPosition);
+            itemView.LongClick += (sender, e) => longClickListener(LayoutPosition);
         }
     }
 }

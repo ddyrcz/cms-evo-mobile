@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace CmsDroid.Activities.CarsList
 
             _carsAdapter = new CarsListAdapter(_cars);
             _carsAdapter.CarClicked += CarClicked;
+            _carsAdapter.CarLongClicked += CarLongClicked;
 
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.carsListRecyclerView);
 
@@ -98,6 +100,11 @@ namespace CmsDroid.Activities.CarsList
             var intent = new Intent(this, typeof(CarDetailsActivity));
             intent.PutExtra("SelectedCarId", carId);
             StartActivityForResult(intent, (int)Request.UpdateCarRequest);
+        }
+
+        private void CarLongClicked(object sender, Guid e)
+        {
+            Toast.MakeText(this, "Long clicked", ToastLength.Long).Show();
         }
     }
 

@@ -20,6 +20,7 @@ namespace CmsDroid.Activities.CarsList
         private List<CarsListViewModel> _cars;
 
         public event EventHandler<Guid> CarClicked;
+        public event EventHandler<Guid> CarLongClicked;
 
         public CarsListAdapter(List<CarsListViewModel> cars)
             : base()
@@ -73,7 +74,7 @@ namespace CmsDroid.Activities.CarsList
                         Inflate(Resource.Layout.car_list_item, parent, false);
 
             // Create a ViewHolder to hold view references inside the CardView:
-            var carViewHolder = new CarViewHolder(itemView, CarListItemClicked);
+            var carViewHolder = new CarViewHolder(itemView, CarListItemClicked, CarListItemLongClicked);
             return carViewHolder;
         }
 
@@ -82,6 +83,13 @@ namespace CmsDroid.Activities.CarsList
             var carClicked = _cars[position];
 
             CarClicked?.Invoke(this, carClicked.Id);
+        }
+
+        public void CarListItemLongClicked(int position)
+        {
+            var carClicked = _cars[position];
+
+            CarLongClicked?.Invoke(this, carClicked.Id);
         }
     }
 }

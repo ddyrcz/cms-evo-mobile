@@ -70,6 +70,9 @@
     <Compile Include="Activities\CarDetails\UpdateCarClient\UpdateCarRequest.cs" />
     <Compile Include="Activities\CarsList\CarsListActivity.cs" />
     <Compile Include="Activities\CarsList\CarsListAdapter.cs" />
+    <Compile Include="Activities\CarsList\DeleteCarClient\DeleteCarClientFactory.cs" />
+    <Compile Include="Activities\CarsList\DeleteCarClient\MemoryClient.cs" />
+    <Compile Include="Activities\CarsList\DeleteCarClient\RemoteClient.cs" />
     <Compile Include="Activities\CarsList\GetCarsClient\GetCarsClientFactory.cs" />
     <Compile Include="Activities\CarsList\GetCarsClient\IGetCarsClient.cs" />
     <Compile Include="Activities\CarsList\CarsListViewModel.cs" />
