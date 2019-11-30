@@ -20,4 +20,16 @@
             fab:fab_colorNormal="#3f51b5"
             fab:fab_colorPressed="#002984"
             fab:fab_colorRipple="#757de8" />
+
+<Refractored.Fab.FloatingActionButton
+            android:id="@+id/start_notification_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:layout_margin="16dp"
+			fab:fab_size="normal"
+            android:src="@drawable/add"
+            fab:fab_colorNormal="#3f51b5"
+            fab:fab_colorPressed="#002984"
+            fab:fab_colorRipple="#757de8" />
 </FrameLayout>
