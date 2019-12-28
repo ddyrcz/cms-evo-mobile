@@ -89,6 +89,7 @@
     <Compile Include="StaticAppSettings.cs" />
     <Compile Include="Utils\DateParser.cs" />
     <Compile Include="Utils\DatePickerFragment.cs" />
+    <Compile Include="Utils\FirebaseNotificationsInitializer.cs" />
     <Compile Include="Utils\IntentExtension.cs" />
   </ItemGroup>
   <ItemGroup>

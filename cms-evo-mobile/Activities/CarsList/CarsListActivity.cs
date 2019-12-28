@@ -48,6 +48,7 @@ namespace CmsDroid.Activities.CarsList
             fab.AttachToRecyclerView(_recyclerView);
             fab.Click += AddCarClicked;
 
+            FirebaseNotificationsInitializer.InitializeFirebaseNotifications(this);
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
