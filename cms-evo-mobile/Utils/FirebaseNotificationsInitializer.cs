@@ -19,34 +19,20 @@ namespace CmsDroid.Utils
 
         public static void InitializeFirebaseNotifications(Activity context)
         {
-            IsPlayServicesAvailable(context);
-            CreateNotificationChannel(context);
-
-            FirebaseMessaging.Instance.SubscribeToTopic("main");
+            if (IsPlayServicesAvailable(context))
+            {
+                CreateNotificationChannel(context);
+                FirebaseMessaging.Instance.SubscribeToTopic("main");
+            }
         }
 
         private static bool IsPlayServicesAvailable(Activity context)
         {
             int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(context);
-            if (resultCode != ConnectionResult.Success)
-            {
-                if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode)) { }
-                    //msgText.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
-                else
-                {
-                    //msgText.Text = "This device is not supported";
-                    //Finish();
-                }
-                return false;
-            }
-            else
-            {
-                //msgText.Text = "Google Play Services is available.";
-                return true;
-            }
+            return resultCode == ConnectionResult.Success;
         }
 
-       private static void CreateNotificationChannel(Activity context)
+        private static void CreateNotificationChannel(Activity context)
         {
             if (Build.VERSION.SdkInt < BuildVersionCodes.O)
             {
