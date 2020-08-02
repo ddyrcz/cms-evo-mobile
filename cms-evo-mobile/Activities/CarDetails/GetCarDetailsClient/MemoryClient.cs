@@ -59,7 +59,7 @@ namespace CmsDroid.Activities.CarDetails.GetCarDetailsClient
                            "SLU GG3Z",
                             new DateTime(2019, 06, 05),
                             new DateTime(2019, 10, 05),
-                            new DateTime(2019, 03, 05),
+                            null,
                             new DateTime(2019, 04, 22),
                             new DateTime(2019, 10, 05),
                             new DateTime(2019, 04, 22))
@@ -84,8 +84,8 @@ namespace CmsDroid.Activities.CarDetails.GetCarDetailsClient
                            "Renault",
                            "SLU P2SS",
                             new DateTime(2019, 06, 05),
-                            new DateTime(2019, 10, 05),
-                            null,
+                            new DateTime(2019, 11, 07),
+                            new DateTime(2019, 04, 21),
                             new DateTime(2019, 04, 22),
                             new DateTime(2019, 10, 05),
                             new DateTime(2019, 04, 22))
@@ -97,8 +97,8 @@ namespace CmsDroid.Activities.CarDetails.GetCarDetailsClient
                             "Renault",
                             "SLU VF56",
                             new DateTime(2019, 06, 05),
-                            new DateTime(2019, 10, 05),
-                            null,
+                            new DateTime(2020, 02, 25),
+                            new DateTime(2019, 11, 01),
                             new DateTime(2019, 04, 22),
                             new DateTime(2019, 10, 05),
                             new DateTime(2019, 04, 22))
