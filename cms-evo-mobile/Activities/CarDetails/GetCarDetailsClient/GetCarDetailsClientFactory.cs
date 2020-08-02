@@ -30,6 +30,6 @@ namespace CmsDroid.Activities.CarDetails.GetCarDetailsClient
 
     interface IGetCarDetailsClient
     {
-        CarDetailsViewModel GetDetails(Guid carId);
+        CarDto GetDetails(Guid carId);
     }
 }

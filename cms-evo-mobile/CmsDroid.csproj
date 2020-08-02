@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\CarDetails\CarDetailsActivity.cs" />
-    <Compile Include="Activities\CarDetails\CarDetailsViewModel.cs" />
+    <Compile Include="Activities\CarDetails\CarDto.cs" />
     <Compile Include="Activities\CarDetails\GetCarDetailsClient\MemoryClient.cs" />
     <Compile Include="Activities\CarDetails\UpdateCarClient\MemoryClient.cs" />
     <Compile Include="Activities\CarDetails\UpdateCarClient\RemoteClient.cs" />
@@ -73,7 +73,7 @@
     <Compile Include="Activities\CarsList\DeleteCarClient\RemoteClient.cs" />
     <Compile Include="Activities\CarsList\GetCarsClient\GetCarsClientFactory.cs" />
     <Compile Include="Activities\CarsList\GetCarsClient\IGetCarsClient.cs" />
-    <Compile Include="Activities\CarsList\CarsListViewModel.cs" />
+    <Compile Include="Activities\CarsList\CarDto.cs" />
     <Compile Include="Activities\CarsList\GetCarsClient\MemoryClient.cs" />
     <Compile Include="Activities\CarsList\GetCarsClient\MemoryData.cs" />
     <Compile Include="Activities\CarsList\CarViewHolder.cs" />

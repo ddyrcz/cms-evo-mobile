@@ -16,7 +16,7 @@ namespace CmsDroid.Activities.CarDetails.GetCarDetailsClient
 {
     class RemoteClient : IGetCarDetailsClient
     {
-        public CarDetailsViewModel GetDetails(Guid carId)
+        public CarDto GetDetails(Guid carId)
         {
             using (var http = new HttpClient())
             {
@@ -32,7 +32,7 @@ namespace CmsDroid.Activities.CarDetails.GetCarDetailsClient
 
         public class GetCarDetailsResponse
         {
-            public CarDetailsViewModel Car { get; set; }
+            public CarDto Car { get; set; }
         }
     }
 }

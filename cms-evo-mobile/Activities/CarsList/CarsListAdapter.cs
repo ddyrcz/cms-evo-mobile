@@ -17,13 +17,13 @@ namespace CmsDroid.Activities.CarsList
 {
     class CarsListAdapter : RecyclerView.Adapter
     {
-        private List<CarsListViewModel> _cars;
+        private List<CarDto> _cars;
 
         public event EventHandler<Guid> CarClicked;
 
         public event EventHandler<Guid> CarLongClicked;
 
-        public CarsListAdapter(List<CarsListViewModel> cars)
+        public CarsListAdapter(List<CarDto> cars)
             : base()
         {
             _cars = cars;
@@ -31,7 +31,7 @@ namespace CmsDroid.Activities.CarsList
 
         public override int ItemCount => _cars.Count;
 
-        public void UpdateItems(List<CarsListViewModel> cars)
+        public void UpdateItems(List<CarDto> cars)
         {
             _cars = cars;
         }
@@ -45,7 +45,7 @@ namespace CmsDroid.Activities.CarsList
             carViewHolder.Name.Text = car.Name;
             carViewHolder.RegistrationNumber.Text = car.RegistrationNumber;
 
-            if (car.ApproachingExpiration)
+            if (car.IsReviewRequired)
             {
                 SetWarningColorsToCarItem(carViewHolder);
             }

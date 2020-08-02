@@ -14,6 +14,6 @@ namespace CmsDroid.Activities.CarsList.GetCarsClient
 {
     interface IGetCarsClient
     {
-        List<CarsListViewModel> GetCars();
+        List<CarDto> GetCars();
     }
 }

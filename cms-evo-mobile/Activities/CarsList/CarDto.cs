@@ -2,22 +2,22 @@
 
 namespace CmsDroid.Activities.CarsList
 {
-    public class CarsListViewModel
+    public class CarDto
     {
         public Guid Id { get; }
         public string Name { get; }
         public string RegistrationNumber { get; }
-        public bool ApproachingExpiration { get; }
+        public bool IsReviewRequired { get; }
 
-        public CarsListViewModel(Guid id,
+        public CarDto(Guid id,
             string name,
             string registrationNumber,
-            bool approachingExpiration)
+            bool isReviewRequired)
         {
             Id = id;
             Name = name;
             RegistrationNumber = registrationNumber;
-            ApproachingExpiration = approachingExpiration;
+            IsReviewRequired = isReviewRequired;
         }
     }
 }
