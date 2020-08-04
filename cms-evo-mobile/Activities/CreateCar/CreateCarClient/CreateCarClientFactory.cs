@@ -42,6 +42,7 @@ namespace CmsDroid.Activities.CreateCar.CreateCarClient
            string registrationNumber,
            DateTime? termTechnicalResearch,
            DateTime? ocExpiry,
+           DateTime? ocInstallmentDate,
            DateTime? acExpiry,
            DateTime? liftUdtExpiry,
            DateTime? tachoLegalizationExpiry)
@@ -51,6 +52,7 @@ namespace CmsDroid.Activities.CreateCar.CreateCarClient
             RegistrationNumber = registrationNumber;
             TermTechnicalResearch = termTechnicalResearch;
             OcExpiry = ocExpiry;
+            OcInstallmenyDate = ocInstallmentDate;
             AcExpiry = acExpiry;
             LiftUdtExpiry = liftUdtExpiry;
             TachoLegalizationExpiry = tachoLegalizationExpiry;
@@ -61,6 +63,7 @@ namespace CmsDroid.Activities.CreateCar.CreateCarClient
         public string RegistrationNumber { get; }
         public DateTime? TermTechnicalResearch { get; }
         public DateTime? OcExpiry { get; }
+        public DateTime? OcInstallmenyDate{ get; }
         public DateTime? AcExpiry { get; }
         public DateTime? LiftUdtExpiry { get; }
         public DateTime? TachoLegalizationExpiry { get; }

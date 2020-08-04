@@ -2,13 +2,14 @@ using System;
 
 namespace CmsDroid.Activities.CarDetails
 {
-    class CarDetailsViewModel
+    class CarDto
     {
-        public CarDetailsViewModel(Guid id,
+        public CarDto(Guid id,
             string name,
             string registrationNumber,
             DateTime? termTechnicalResearch,
             DateTime? ocExpiry,
+            DateTime? ocInstallmentDate,
             DateTime? acExpiry,
             DateTime? liftUdtExpiry,
             DateTime? tachoLegalizationExpiry)
@@ -18,6 +19,7 @@ namespace CmsDroid.Activities.CarDetails
             RegistrationNumber = registrationNumber;
             TermTechnicalResearch = termTechnicalResearch;
             OcExpiry = ocExpiry;
+            OcInstallmentDate = ocInstallmentDate;
             AcExpiry = acExpiry;
             LiftUdtExpiry = liftUdtExpiry;
             TachoLegalizationExpiry = tachoLegalizationExpiry;
@@ -28,6 +30,7 @@ namespace CmsDroid.Activities.CarDetails
         public string RegistrationNumber { get; }
         public DateTime? TermTechnicalResearch { get; }
         public DateTime? OcExpiry { get; }
+        public DateTime? OcInstallmentDate { get; }
         public DateTime? AcExpiry { get; }
         public DateTime? LiftUdtExpiry { get; }
         public DateTime? TachoLegalizationExpiry { get; }

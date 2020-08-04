@@ -27,6 +27,7 @@ namespace CmsDroid.Activities.CarDetails
         EditText _registrationNumber;
         TextView _technicalTermResearch;
         TextView _ocExpiry;
+        TextView _ocInstallmentDate;
         TextView _acExpiry;
         TextView _liftUdtExpiry;
         TextView _tachoLegalizationExpiry;
@@ -62,14 +63,20 @@ namespace CmsDroid.Activities.CarDetails
             _technicalTermResearch = FindViewById<EditText>(Resource.Id.details_car_term_technical_research);
             _technicalTermResearch.Text = car.TermTechnicalResearch?.ToString(DateFormat);
             _technicalTermResearch.TextChanged += (obj, args) => OnDataChanged();
-            _technicalTermResearch.Click += 
+            _technicalTermResearch.Click +=
                 (sender, args) => OnSelectDateClicked(_technicalTermResearch);
 
             _ocExpiry = FindViewById<EditText>(Resource.Id.details_car_oc_expiry);
             _ocExpiry.Text = car.OcExpiry?.ToString(DateFormat);
             _ocExpiry.TextChanged += (obj, args) => OnDataChanged();
             _ocExpiry.Click +=
-                 (sender, args) => OnSelectDateClicked(_ocExpiry); ;
+                 (sender, args) => OnSelectDateClicked(_ocExpiry);
+
+            _ocInstallmentDate = FindViewById<EditText>(Resource.Id.details_car_oc_installment_date);
+            _ocInstallmentDate.Text = car.OcInstallmentDate?.ToString(DateFormat);
+            _ocInstallmentDate.TextChanged += (obj, args) => OnDataChanged();
+            _ocInstallmentDate.Click +=
+                (sender, args) => OnSelectDateClicked(_ocInstallmentDate);
 
             _acExpiry = FindViewById<EditText>(Resource.Id.details_car_ac_expiry);
             _acExpiry.Text = car.AcExpiry?.ToString(DateFormat);
@@ -89,7 +96,7 @@ namespace CmsDroid.Activities.CarDetails
             _tachoLegalizationExpiry.Click +=
                  (sender, args) => OnSelectDateClicked(_tachoLegalizationExpiry); ;
 
-            _isDataInitialized = true;            
+            _isDataInitialized = true;
         }
 
         private async void OnUpdateCarClicked(object sender, EventArgs e)
@@ -101,6 +108,7 @@ namespace CmsDroid.Activities.CarDetails
                 _registrationNumber.Text,
                 DateParser.ParseDate(_technicalTermResearch.Text, DateFormat),
                 DateParser.ParseDate(_ocExpiry.Text, DateFormat),
+                DateParser.ParseDate(_ocInstallmentDate.Text, DateFormat),
                 DateParser.ParseDate(_acExpiry.Text, DateFormat),
                 DateParser.ParseDate(_liftUdtExpiry.Text, DateFormat),
                 DateParser.ParseDate(_tachoLegalizationExpiry.Text, DateFormat));

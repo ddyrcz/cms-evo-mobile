@@ -24,7 +24,7 @@ namespace CmsDroid.Activities.CarsList
     {
         RecyclerView _recyclerView;
         CarsListAdapter _carsAdapter;
-        List<CarsListViewModel> _cars;
+        List<CarDto> _cars;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

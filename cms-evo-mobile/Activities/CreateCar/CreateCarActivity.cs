@@ -23,8 +23,9 @@ namespace CmsDroid.Activities
         EditText _name;
         EditText _registrationNumber;
         TextView _technicalTermResearch;
-        TextView _registrationNumberOcExpiry;
-        TextView _registrationNumberAcExpiry;
+        TextView _ocExpiry;
+        TextView _ocInstallmentDate;
+        TextView _acExpiry;
         TextView _liftUdtExpiry;
         TextView _tachoLegalizationExpiry;
         FloatingActionButton _createCarButton;
@@ -48,13 +49,17 @@ namespace CmsDroid.Activities
             _technicalTermResearch.Click += 
                 (sender, args) => OnSelectDateClicked(_technicalTermResearch);
 
-            _registrationNumberOcExpiry = FindViewById<EditText>(Resource.Id.details_car_oc_expiry);
-            _registrationNumberOcExpiry.Click += 
-                (sender, args) => OnSelectDateClicked(_registrationNumberOcExpiry);
+            _ocExpiry = FindViewById<EditText>(Resource.Id.details_car_oc_expiry);
+            _ocExpiry.Click += 
+                (sender, args) => OnSelectDateClicked(_ocExpiry);
 
-            _registrationNumberAcExpiry = FindViewById<EditText>(Resource.Id.details_car_ac_expiry);
-            _registrationNumberAcExpiry.Click += 
-                (sender, args) => OnSelectDateClicked(_registrationNumberAcExpiry);
+            _ocInstallmentDate = FindViewById<EditText>(Resource.Id.details_car_oc_installment_date);
+            _ocInstallmentDate.Click +=
+                (sender, args) => OnSelectDateClicked(_ocInstallmentDate);
+
+            _acExpiry = FindViewById<EditText>(Resource.Id.details_car_ac_expiry);
+            _acExpiry.Click += 
+                (sender, args) => OnSelectDateClicked(_acExpiry);
 
             _liftUdtExpiry = FindViewById<EditText>(Resource.Id.details_car_lift_udt_expiry);
             _liftUdtExpiry.Click += 
@@ -72,8 +77,9 @@ namespace CmsDroid.Activities
                _name.Text,
                _registrationNumber.Text,
                DateParser.ParseDate(_technicalTermResearch.Text, DateFormat),
-               DateParser.ParseDate(_registrationNumberOcExpiry.Text, DateFormat),
-               DateParser.ParseDate(_registrationNumberAcExpiry.Text, DateFormat),
+               DateParser.ParseDate(_ocExpiry.Text, DateFormat),
+               DateParser.ParseDate(_ocInstallmentDate  .Text, DateFormat),
+               DateParser.ParseDate(_acExpiry.Text, DateFormat),
                DateParser.ParseDate(_liftUdtExpiry.Text, DateFormat),
                DateParser.ParseDate(_tachoLegalizationExpiry.Text, DateFormat));
 

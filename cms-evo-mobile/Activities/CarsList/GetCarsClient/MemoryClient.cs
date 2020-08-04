@@ -4,7 +4,7 @@ namespace CmsDroid.Activities.CarsList.GetCarsClient
 {
     internal class MemoryClient : IGetCarsClient
     {
-        public List<CarsListViewModel> GetCars()
+        public List<CarDto> GetCars()
         {
             return MemoryData.Cars;
         }
