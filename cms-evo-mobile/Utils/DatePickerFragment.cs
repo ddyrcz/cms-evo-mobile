@@ -1,4 +1,5 @@
-using Android.App;
+﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 using System;
@@ -8,10 +9,9 @@ namespace CmsDroid.Utils
     public class DatePickerFragment : DialogFragment,
                                       DatePickerDialog.IOnDateSetListener
     {
-        // TAG can be any string of your choice.
         public static readonly string TAG = "X:" + typeof(DatePickerFragment).Name.ToUpper();
 
-        public event EventHandler<DateTime> OnDateSelected;
+        public event EventHandler<DateTime?> OnDateSelected;
 
         private DateTime _initialDate;
 
@@ -28,7 +28,14 @@ namespace CmsDroid.Utils
                 _initialDate.Month - 1,
                 _initialDate.Day);
 
+            dialog.SetButton3("Wyczyść", ClearDate);
+
             return dialog;
+        }
+
+        private void ClearDate(object sender, DialogClickEventArgs args)
+        {
+            OnDateSelected?.Invoke(this, null);
         }
 
         public void OnDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)

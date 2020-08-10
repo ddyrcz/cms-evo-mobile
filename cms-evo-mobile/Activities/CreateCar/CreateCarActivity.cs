@@ -98,7 +98,7 @@ namespace CmsDroid.Activities
 
             datePicker.OnDateSelected += (sender, selectedDate) =>
             {
-                clickedDateTextView.Text = selectedDate.ToString(DateFormat);
+                clickedDateTextView.Text = selectedDate?.ToString(DateFormat);
             };            
         }
     }
