@@ -15,6 +15,6 @@ namespace CmsDroid
     static class StaticAppSettings
     {
         public static bool UseMockData = false;
-        public static string ServiceAddress = "https://cms-api-service.azurewebsites.net/";
+        public static string ServiceAddress = "https://cmsevoapi.azurewebsites.net/";
     }
 }
